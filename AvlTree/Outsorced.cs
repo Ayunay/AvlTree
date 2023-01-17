@@ -62,9 +62,11 @@ namespace AvlTree
                                 "2. Delete an element \n" +
                                 "3. Search an element \n");
 
+            char menuSelection = '0';
+
             while (!validMenuselection)
             {
-                char menuSelection = Console.ReadKey(true).KeyChar;
+                menuSelection = Console.ReadKey(true).KeyChar;
 
                 switch (menuSelection)
                 {
