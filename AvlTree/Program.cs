@@ -15,88 +15,78 @@ namespace AvlTree
     {
         public Node Insert(Node root, int value, Node parent)
         {
+            // if there is no root, create one
             if (root == null)
             {
                 root = new Node();
                 root.value = value;
                 root.Parent = parent;
             }
+            // if the value is smaler than the root
             else if (value <= root.value)
             {
-                //bool isRightChild = false;
+                // if there is a parent
                 if (root.Parent != null)
                 {
+                    // check if he has childs
                     bool leftChild = CheckChild(root.Parent.Left);
                     bool rightChild = CheckChild(root.Parent.Right);
 
+                    // when there is only a left child - rotate right 
                     if (!rightChild && leftChild)
                     {
                         if (root.Parent.Right == null)
-                        {
-                            //Rotate(root.Parent, value);
                             root.Parent.Right = Insert(root.Parent.Right, root.Parent.value, root.Parent);
-                        }
 
                         root.Parent.value = root.value;
-
                         root.value = value;
                     }
-                    else if(rightChild && !leftChild)
-                    {
-                        if (root.Parent.Left == null)
-                        {
-                            //Rotate(root.Parent, value);
-                            root.Parent.Left = Insert(root.Parent.Left, root.Parent.value, root.Parent);
-                        }
-
-                        root.Parent.value = root.value;
-
-                        root.value = value;
-                    }
-                    else root.Left = Insert(root.Left, value, root);
-                }
-                else
-                {
-                    root.Left = Insert(root.Left, value, root);
-                }
-            }
-            else if(value > root.value)
-            {
-                if (root.Parent != null)
-                {
-                    bool leftChild = CheckChild(root.Parent.Left);
-                    bool rightChild = CheckChild(root.Parent.Right);
-
-                    if (!rightChild && leftChild)
-                    {
-                        if (root.Parent.Right == null)
-                        {
-                            //Rotate(root.Parent, value);
-                            root.Parent.Right = Insert(root.Parent.Right, root.Parent.value, root.Parent);
-                        }
-
-                        root.Parent.value = root.value;
-
-                        root.value = value;
-                    }
+                    // when there is only a right child - rotate left
                     else if (rightChild && !leftChild)
                     {
                         if (root.Parent.Left == null)
-                        {
-                            //Rotate(root.Parent, value);
                             root.Parent.Left = Insert(root.Parent.Left, root.Parent.value, root.Parent);
-                        }
 
                         root.Parent.value = root.value;
-
                         root.value = value;
                     }
+                    // when there are two or no childs, continue
+                    else root.Left = Insert(root.Left, value, root);
+                }
+                else root.Left = Insert(root.Left, value, root);    // else create a new left child
+            }
+            // if the value is bigger than the root
+            else if(value > root.value)
+            {
+                // if there is a parent
+                if (root.Parent != null)
+                {
+                    // check if he has childs
+                    bool leftChild = CheckChild(root.Parent.Left);
+                    bool rightChild = CheckChild(root.Parent.Right);
+
+                    // when there is only a left child - rotate right 
+                    if (!rightChild && leftChild)
+                    {
+                        if (root.Parent.Right == null)
+                            root.Parent.Right = Insert(root.Parent.Right, root.Parent.value, root.Parent);
+
+                        root.Parent.value = root.value;
+                        root.value = value;
+                    }
+                    // when there is only a right child - rotate left
+                    else if (rightChild && !leftChild)
+                    {
+                        if (root.Parent.Left == null)
+                            root.Parent.Left = Insert(root.Parent.Left, root.Parent.value, root.Parent);
+
+                        root.Parent.value = root.value;
+                        root.value = value;
+                    }
+                    // when there are two or no childs, continue
                     else root.Right = Insert(root.Right, value, root);
                 }
-                else
-                {
-                    root.Right = Insert(root.Right, value, root);
-                } 
+                else root.Right = Insert(root.Right, value, root);  // else chreate a new right child
             }
 
             return root;
@@ -179,7 +169,7 @@ namespace AvlTree
 
             Node root = null;
 
-            int size = 10;
+            int size = 50;
             int[] zahlen = new int[size];
 
             Console.WriteLine("Starte die Füllung des Arrays...");
