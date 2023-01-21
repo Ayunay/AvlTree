@@ -39,7 +39,7 @@ namespace AvlTree
             
 
             // Print out the Tree
-            Print.PrintTree(root, zahlen.Length);
+            Print.PrintTree(root, zahlen.Length+5);
             Console.WriteLine("\n\n");
             Print.TraversIn(root);
 

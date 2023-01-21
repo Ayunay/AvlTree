@@ -65,7 +65,7 @@ namespace AvlTree
         public void PrintTree(Node root, int count)
         {
             // make sure that the count variable is one of the numbers, no matter what was inserted
-            if (count == 1) count = 1;
+            if (count <= 1) count = 1;
             else if (count <= 3) count = 3;
             else if (count <= 7) count = 7;
             else if (count <= 15) count = 15;
@@ -80,22 +80,31 @@ namespace AvlTree
             Console.WriteLine();
 
             // HEIGHT 1
-            PrintChilds(root, count, true);         // 30
+            if(count <= 30)
+            {
+                PrintChilds(root, count, true);         // 30
+                Console.WriteLine();
+            }
             count = (count / 2) - 1;                // count = 14
-            Console.WriteLine();
 
             // HEIGHT 2
-            PrintChilds(root.Left, count, true);    // 14
-            PrintChilds(root.Right, count, false);  // 14
+            if(count <= 14)
+            {
+                PrintChilds(root.Left, count, true);    // 14
+                PrintChilds(root.Right, count, false);  // 14
+                Console.WriteLine();
+            }
             count = (count / 2) - 1;                // count = 6
-            Console.WriteLine();
 
-            PrintTreeDown(root.Left, count, true);  // 6
-            PrintTreeDown(root.Right, count, false);// 6
+            if(count <= 6)
+            {
+                PrintTreeDown(root.Left, count, true);  // 6
+                PrintTreeDown(root.Right, count, false);// 6
+                Console.WriteLine();
+            }
             count = (count / 2) - 1;                // count = 2
-            Console.WriteLine();
 
-            if (count == 2)
+            if (count <= 2)
             {
                 PrintTree4(root.Left, count);   // 2
                 PrintTree4(root.Right, count);  // 2
