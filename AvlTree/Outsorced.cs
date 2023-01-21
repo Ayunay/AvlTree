@@ -60,7 +60,8 @@ namespace AvlTree
             Console.WriteLine("\nWhat do you want to do? \n" +
                                 "1. Add an element \n" +
                                 "2. Delete an element \n" +
-                                "3. Search an element \n");
+                                "3. Search an element \n" +
+                                "4. Show Tree in a sorted List (ascending) \n");
 
             char menuSelection = '0';
 
@@ -79,6 +80,10 @@ namespace AvlTree
                         break;
                     
                     case '3':
+                        validMenuselection = true;
+                        break;
+
+                    case '4':
                         validMenuselection = true;
                         break;
 
