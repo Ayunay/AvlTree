@@ -17,12 +17,13 @@ namespace AvlTree
 
             Node root = null;
 
-            // height: 1 - 2 - 4 - 8 - 16 - 32 - 64
+            // height: 0 - 1 - 2 - 3 - 4  - 5  - 6
+            // nodes:  1 - 2 - 4 - 8 - 16 - 32 - 64
             // size:   1 - 3 - 7 - 15- 31 - 63 - 127
-            int size = 50;
+            int size = 7;
 
-            /*int[] zahlen = new int[size];
-            
+            int[] zahlen = new int[] { 5,12,3,11,7,4,10,2,8,1,13,6,9,14,15};
+            /*
             // Create Array 
             for (int i = 0; i < zahlen.Length; i++)
             {
@@ -31,14 +32,16 @@ namespace AvlTree
             }*/
 
             // Insert Array numbers into Tree
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < zahlen.Length; i++)
             {
-                root = Add.Add(root, i);
+                root = Add.Add(root, zahlen[i]);
             }
+            
 
             // Print out the Tree
-            Print.TraversIn(root);
+            Print.PrintTree(root, zahlen.Length);
             Console.WriteLine("\n\n");
+            Print.TraversIn(root);
 
             Console.ReadKey();
         }
