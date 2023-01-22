@@ -9,6 +9,8 @@ namespace AvlTree
 {
     internal class TreeCheck
     {
+        #region Search a Number
+
         /// <summary>
         /// Search for a number in the Tree -- DOES NOT WORK YET
         /// </summary>
@@ -25,13 +27,17 @@ namespace AvlTree
             if (node != null & node.value == value) count++;
 
             if (node.value <= value && node.Left != null)
-                count += SearchPre(node.Left, value, count);
+                count = SearchPre(node.Left, value, count);
 
             else if (node.value >= value && node.Right != null)
-                count += SearchPre(node.Right, value, count);
+                count = SearchPre(node.Right, value, count);
 
             return count;
         }
+
+        #endregion
+
+        #region Check Height of all Nodes to check if we need to rotate
 
         /// <summary>
         /// Post order to go through every node from bottom to top, to check if something needs to rotate
@@ -58,16 +64,43 @@ namespace AvlTree
         /// <returns></returns>
         private Node CheckHeight(Node node)
         {
-            int height = 0;
+            int heightLeft = 0;
+            int heightRight = 0;
+
+            if(node.Left != null)
+                heightLeft = NodeHeight(node.Left, 0);
+            if(node.Right != null)
+                heightRight = NodeHeight(node.Right, 0);
+
+            int height = heightRight - heightLeft;
 
             if (height < 0) Console.Write(height + " ");
             else if (height >= 0) Console.Write(" " + height + " ");
 
-            if (height < -1 || height > 1)
-                WhichRotation(node);
+            //if (height < -1 || height > 1)
+            //    WhichRotation(node);
 
             return node;
         }
+
+        private int NodeHeight(Node node, int height)
+        {
+            height++;
+            int heightLeft = height;
+            int heightRight = height;
+
+            if (node.Left != null)
+                heightLeft += NodeHeight(node.Left, 0);
+            if (node.Right != null)
+                heightRight += NodeHeight(node.Right, 0);
+
+            // take the higher value (either left or right) to avoid double the height at 2 childs
+            height = heightLeft > heightRight ? heightLeft : heightRight;   
+
+            return height;
+        }
+
+        #endregion
 
         private Node WhichRotation(Node node)
         {
