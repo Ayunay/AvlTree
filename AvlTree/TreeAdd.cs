@@ -8,23 +8,37 @@ namespace AvlTree
 {
     internal class TreeAdd
     {
-        public Node Add(Node node, int value)
+        private bool parentExist = false;
+        private Node tempParent;
+
+        public Node Add(Node root, int value)
         {
-            if (node == null)
+            // if there is no node, create one
+            if (root == null)
             {
-                node = new Node();
-                node.value = value;
+                root = new Node();
+                root.value = value;
+
+                if (parentExist)        // if node has a parent (only false when its the first root)
+                    root.Parent = tempParent;   // set the saved Node as Parent 
+                parentExist = false;    // reset boolean for the next Insertion
             }
-            else if (value <= node.value)
+            // if the value is smaller than the node, go to the left child
+            else if (value < root.value)
             {
-                node.Left = Add(node.Left, value);
+                parentExist = true;
+                tempParent = root;      // save Parent to say the Child I am your parent
+                root.Left = Add(root.Left, value);
             }
-            else if (value > node.value)
+            // if the value is greater than the node, go to the right child
+            else if (value >= root.value)
             {
-                node.Right = Add(node.Right, value);
+                parentExist = true;
+                tempParent = root;
+                root.Right = Add(root.Right, value);
             }
 
-            return node;
+            return root;
         }
 
         /* ERSTER VERSUCH

@@ -22,7 +22,7 @@ namespace AvlTree
             // size:   1 - 3 - 7 - 15- 31 - 63 - 127
             int size = 7;
 
-            int[] zahlen = new int[] { 7,3,10,2,5,8,1,13,4,6,9,14,15};
+            int[] zahlen = new int[] { 7,3,10,2,5,8,1,13,4,11,6,9,12};
             /*
             // Create Array 
             for (int i = 0; i < zahlen.Length; i++)
