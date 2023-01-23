@@ -100,7 +100,8 @@ namespace AvlTree
             // HEIGHT 1
             if(count <= 30)
             {
-                PrintChilds(root, count, true);         // 30
+                if(root != null)
+                    PrintChilds(root, count, true);         // 30
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 14
@@ -108,24 +109,30 @@ namespace AvlTree
             // HEIGHT 2
             if(count <= 14)
             {
-                PrintChilds(root.Left, count, true);    // 14
-                PrintChilds(root.Right, count, false);  // 14
+                if(root.Left != null)
+                    PrintChilds(root.Left, count, true);    // 14
+                if(root.Right != null)
+                    PrintChilds(root.Right, count, false);  // 14
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 6
 
             if(count <= 6)
             {
-                PrintTreeDown(root.Left, count, true);  // 6
-                PrintTreeDown(root.Right, count, false);// 6
+                if(root.Left != null)
+                    PrintTreeDown(root.Left, count, true);  // 6
+                if(root.Right != null)
+                    PrintTreeDown(root.Right, count, false);// 6
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 2
 
             if (count <= 2)
             {
-                PrintTree4(root.Left, count);   // 2
-                PrintTree4(root.Right, count);  // 2
+                if(root.Left != null)
+                    PrintTree4(root.Left, count);   // 2
+                if(root.Right != null)
+                    PrintTree4(root.Right, count);  // 2
             }
         }
 
@@ -137,8 +144,10 @@ namespace AvlTree
         private void PrintTree4(Node node, int count)
         {
             // HEIGHT 4
-            PrintTreeDown(node.Left, count, false);
-            PrintTreeDown(node.Right, count, false);
+            if(node.Left != null)
+                PrintTreeDown(node.Left, count, false);
+            if(node.Right != null)
+                PrintTreeDown(node.Right, count, false);
         }
 
         /// <summary>

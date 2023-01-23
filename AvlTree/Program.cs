@@ -22,7 +22,8 @@ namespace AvlTree
             // size:   1 - 3 - 7 - 15- 31 - 63 - 127
             int size = 7;
 
-            int[] zahlen = new int[] { 7,3,10,2,5,8,1,13,4,11,6,9,12};
+            int[] zahlen = new int[] { 7,3,10,2,5,9,4,1,6,14,13,12
+                ,11};
             /*
             // Create Array 
             for (int i = 0; i < zahlen.Length; i++)
@@ -35,6 +36,9 @@ namespace AvlTree
             for (int i = 0; i < zahlen.Length; i++)
             {
                 root = Add.Add(root, zahlen[i]);
+
+                // Check Rotation
+                Check.CheckRotateNeed(root);
             }
             
 
@@ -46,13 +50,13 @@ namespace AvlTree
             Print.TraversIn(root);
             Console.WriteLine("");
 
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Print.TraversPost(root);
             Console.WriteLine();
 
-            // Check Rotation
-            Check.CheckRotateNeed(root);
+            
             Console.ResetColor();
+            Console.WriteLine("");
 
 
             Console.ReadKey();

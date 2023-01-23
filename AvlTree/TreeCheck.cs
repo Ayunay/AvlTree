@@ -39,10 +39,13 @@ namespace AvlTree
 
         #region Check Height of all Nodes to check if we need to rotate
 
+        TreeRotate Rotate = new TreeRotate();
+        TreePrint Print = new TreePrint();
+
         /// <summary>
         /// Post order to go through every node from bottom to top, to check if something needs to rotate
         /// </summary>
-        /// <param name="root"></param>
+        /// <param name="root">The Root of the Tree</param>
         /// <returns></returns>
         public Node CheckRotateNeed(Node root)
         {
@@ -60,7 +63,7 @@ namespace AvlTree
         /// <summary>
         /// Check the Height of the current node, to see if a rotation is needed
         /// </summary>
-        /// <param name="node"></param>
+        /// <param name="node">The actual node to check</param>
         /// <returns></returns>
         private Node CheckHeight(Node node)
         {
@@ -74,17 +77,26 @@ namespace AvlTree
 
             int height = heightRight - heightLeft;
 
-            if (height == -2 || height == 2) Console.ForegroundColor = ConsoleColor.Red;
+            /*
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            if (height == -2 || height == 2) 
+                Console.ForegroundColor = ConsoleColor.Red;
             if (height < 0) Console.Write(height + " ");
             else if (height >= 0) Console.Write(" " + height + " ");
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
+            */
             if (height == -2 || height == 2)
                 WhichRotation(node, height);
 
             return node;
         }
 
+        /// <summary>
+        /// Go through every child of every child of the node, to get the height balance of the node
+        /// </summary>
+        /// <param name="node">the node to check the height</param>
+        /// <param name="height">insert 0</param>
+        /// <returns></returns>
         private int NodeHeight(Node node, int height)
         {
             height++;
@@ -104,6 +116,12 @@ namespace AvlTree
 
         #endregion
 
+        /// <summary>
+        /// Checks which rotation has to be done with an imbalanced node
+        /// </summary>
+        /// <param name="node">The imbalanced node</param>
+        /// <param name="height">The height of the node (should be -2 or 2)</param>
+        /// <returns></returns>
         private Node WhichRotation(Node node, int height)
         {
             /*
@@ -112,9 +130,17 @@ namespace AvlTree
              * LeftLeft = node + node.Right + node.Right
              * LeftRight = node + node.Left + node.Right
              */
-            TreeRotate Rotate = new TreeRotate();
 
-            if (height == -2)        // 2nd = Right Rotation
+            //PRINT TREE
+            Console.ResetColor();
+            Console.WriteLine($"\n n:{node.value} \n");
+            if (node.Parent != null)
+                Print.PrintTree(node.Parent, 31);
+            else Print.PrintTree(node, 31);
+            Console.WriteLine("\n");
+            
+            // 2nd = Right Rotation
+            if (height == -2)        
             {
                 // if problem is directly at node (when node has only one child)
                 if (node.Right == null)
@@ -131,16 +157,17 @@ namespace AvlTree
                 else if (node.Left.Right.Left != null || node.Left.Right.Right != null) 
                     Rotate.RotateLeftRight(node);       //LR
             }
-            else if (height == 2)   // 2nd = Left Rotation
+            // 2nd = Left Rotation
+            else if (height == 2)   
             {
                 // if problem is directly at node (when node has only one child)
                 if (node.Left == null)
                 {
                     //one of them has to be null or there would be no imbalance
                     if (node.Right.Left != null) 
-                        Rotate.RotateLeftLeft(node);    //LL
-                    else if (node.Right.Right != null) 
                         Rotate.RotateRightLeft(node);   //RL
+                    else if (node.Right.Right != null) 
+                        Rotate.RotateLeftLeft(node);    //LL
                 }
                 // if problem is down the tree (when node has two childs)
                 else if (node.Right.Right.Left != null || node.Right.Right.Right != null) 
@@ -148,6 +175,13 @@ namespace AvlTree
                 else if (node.Right.Left.Left != null || node.Right.Left.Right != null) 
                     Rotate.RotateRightLeft(node);       //RL
             }
+
+            Console.WriteLine($"\n fix: {node.Parent.value} \n");
+            if (node.Parent.Parent != null)
+                Print.PrintTree(node.Parent.Parent, 31);
+            else 
+                Print.PrintTree(node.Parent, 31);
+            Console.WriteLine("\n");
 
             return node;
         }
