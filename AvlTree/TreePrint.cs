@@ -111,8 +111,24 @@ namespace AvlTree
             {
                 if(root.Left != null)
                     PrintChilds(root.Left, count, true);    // 14
-                if(root.Right != null)
+                else
+                {
+                    ForEmpty(count / 2);
+                    Console.Write(emptyNode);
+                    ForEmpty(count - 1);
+                    Console.Write(emptyNode);
+
+                }
+                if (root.Right != null)
                     PrintChilds(root.Right, count, false);  // 14
+                else
+                {
+                    ForEmpty(count / 2);
+                    Console.Write(emptyNode);
+                    ForEmpty(count - 1);
+                    Console.Write(emptyNode);
+
+                }
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 6
@@ -121,8 +137,24 @@ namespace AvlTree
             {
                 if(root.Left != null)
                     PrintTreeDown(root.Left, count, true);  // 6
-                if(root.Right != null)
+                else
+                {
+                    ForEmpty(count / 2);
+                    Console.Write(emptyNode);
+                    ForEmpty(count - 1);
+                    Console.Write(emptyNode);
+
+                }
+                if (root.Right != null)
                     PrintTreeDown(root.Right, count, false);// 6
+                else
+                {
+                    ForEmpty(count / 2);
+                    Console.Write(emptyNode);
+                    ForEmpty(count - 1);
+                    Console.Write(emptyNode);
+
+                }
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 2
@@ -131,8 +163,24 @@ namespace AvlTree
             {
                 if(root.Left != null)
                     PrintTree4(root.Left, count);   // 2
-                if(root.Right != null)
+                else
+                {
+                    ForEmpty(count / 2);
+                    Console.Write(emptyNode);
+                    ForEmpty(count - 1);
+                    Console.Write(emptyNode);
+
+                }
+                if (root.Right != null)
                     PrintTree4(root.Right, count);  // 2
+                else
+                {
+                    ForEmpty(count / 2);
+                    Console.Write(emptyNode);
+                    ForEmpty(count - 1);
+                    Console.Write(emptyNode);
+
+                }
             }
         }
 

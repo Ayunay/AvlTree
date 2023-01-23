@@ -77,16 +77,8 @@ namespace AvlTree
 
             int height = heightRight - heightLeft;
 
-            /*
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            if (height == -2 || height == 2) 
-                Console.ForegroundColor = ConsoleColor.Red;
-            if (height < 0) Console.Write(height + " ");
-            else if (height >= 0) Console.Write(" " + height + " ");
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            */
             if (height == -2 || height == 2)
-                WhichRotation(node, height);
+                node = WhichRotation(node, height);
 
             return node;
         }
@@ -132,13 +124,10 @@ namespace AvlTree
              */
 
             //PRINT TREE
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\nROTATE node {node.value} cause of height {height}");
             Console.ResetColor();
-            Console.WriteLine($"\n n:{node.value} \n");
-            if (node.Parent != null)
-                Print.PrintTree(node.Parent, 31);
-            else Print.PrintTree(node, 31);
-            Console.WriteLine("\n");
-            
+
             // 2nd = Right Rotation
             if (height == -2)        
             {
@@ -147,15 +136,15 @@ namespace AvlTree
                 {
                     //one of them has to be null or there would be no imbalance
                     if (node.Left.Left != null) 
-                        Rotate.RotateRightRight(node);  //RR
-                    else if (node.Left.Right != null) 
-                        Rotate.RotateLeftRight(node);   //LR
+                        node = Rotate.RotateRightRight(node);  //RR
+                    else if (node.Left.Right != null)
+                        node = Rotate.RotateLeftRight(node);   //LR
                 }
                 // if problem is down the tree (when node has two childs)
-                else if (node.Left.Left.Left != null || node.Left.Left.Right != null) 
-                    Rotate.RotateRightRight(node);      //RR
-                else if (node.Left.Right.Left != null || node.Left.Right.Right != null) 
-                    Rotate.RotateLeftRight(node);       //LR
+                else if (node.Left.Left.Left != null || node.Left.Left.Right != null)
+                    node = Rotate.RotateRightRight(node);      //RR
+                else if (node.Left.Right.Left != null || node.Left.Right.Right != null)
+                    node = Rotate.RotateLeftRight(node);       //LR
             }
             // 2nd = Left Rotation
             else if (height == 2)   
@@ -164,24 +153,17 @@ namespace AvlTree
                 if (node.Left == null)
                 {
                     //one of them has to be null or there would be no imbalance
-                    if (node.Right.Left != null) 
-                        Rotate.RotateRightLeft(node);   //RL
-                    else if (node.Right.Right != null) 
-                        Rotate.RotateLeftLeft(node);    //LL
+                    if (node.Right.Left != null)
+                        node = Rotate.RotateRightLeft(node);   //RL
+                    else if (node.Right.Right != null)
+                        node = Rotate.RotateLeftLeft(node);    //LL
                 }
                 // if problem is down the tree (when node has two childs)
-                else if (node.Right.Right.Left != null || node.Right.Right.Right != null) 
-                    Rotate.RotateLeftLeft(node);        //LL
-                else if (node.Right.Left.Left != null || node.Right.Left.Right != null) 
-                    Rotate.RotateRightLeft(node);       //RL
+                else if (node.Right.Right.Left != null || node.Right.Right.Right != null)
+                    node = Rotate.RotateLeftLeft(node);        //LL
+                else if (node.Right.Left.Left != null || node.Right.Left.Right != null)
+                    node = Rotate.RotateRightLeft(node);       //RL
             }
-
-            Console.WriteLine($"\n fix: {node.Parent.value} \n");
-            if (node.Parent.Parent != null)
-                Print.PrintTree(node.Parent.Parent, 31);
-            else 
-                Print.PrintTree(node.Parent, 31);
-            Console.WriteLine("\n");
 
             return node;
         }

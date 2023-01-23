@@ -20,46 +20,42 @@ namespace AvlTree
             // height: 0 - 1 - 2 - 3 - 4  - 5  - 6
             // nodes:  1 - 2 - 4 - 8 - 16 - 32 - 64
             // size:   1 - 3 - 7 - 15- 31 - 63 - 127
-            int size = 7;
+            int size = 15;
 
-            int[] zahlen = new int[] { 7,3,10,2,5,9,4,1,6,14,13,12
-                ,11};
-            /*
+            int[] zahlen = new int[size];// { 7,3,10,2,5,9,4,1,6,11,14,13,12};
+            
             // Create Array 
             for (int i = 0; i < zahlen.Length; i++)
             {
-                //zahlen[i] = Random.Next(size);
-                zahlen[i] = i; 
-            }*/
+                zahlen[i] = Random.Next(1, size+1);
+                //zahlen[i] = i; 
+            }
 
             // Insert Array numbers into Tree
             for (int i = 0; i < zahlen.Length; i++)
             {
                 root = Add.Add(root, zahlen[i]);
 
+                Console.WriteLine($"\nADD: {zahlen[i]}");
+                Print.PrintTree(root, 31);
+
                 // Check Rotation
-                Check.CheckRotateNeed(root);
+                root = Check.CheckRotateNeed(root);
+
             }
-            
+
 
             // Print out the Tree
-            Print.PrintTree(root, zahlen.Length+5);
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("");
-
+            Print.PrintTree(root, zahlen.Length+5);
+            Console.WriteLine("\n");
+            
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Print.TraversIn(root);
             Console.WriteLine("");
 
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Print.TraversPost(root);
-            Console.WriteLine();
-
-            
             Console.ResetColor();
-            Console.WriteLine("");
-
-
-            Console.ReadKey();
         }
 
 
