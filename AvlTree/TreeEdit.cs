@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +25,7 @@ namespace AvlTree
         /// <returns></returns>
         public Node AddNode(Node root)
         {
-            int newNode = 0;
-            string input;
-            bool validInput = false;
-
-            // User Input
+            // User Feesback
             Console.WriteLine(Outsorced.addSign);
             Console.WriteLine("\nInsert a number you want to add to the tree.\n" +
                               "The number has to be a full number (1 not 1.5) and greater than 0.");
@@ -40,38 +37,26 @@ namespace AvlTree
                 Console.ResetColor();
             }
 
-            while (!validInput)
-            {
-                input = Console.ReadLine();
+            // USER INPUT
+            int newNode = Input();
 
-                if (!int.TryParse(input, out newNode) || newNode < 0)
-                    Outsorced.WriteColor(true, ConsoleColor.DarkRed, "This is an invalid input, please enter a positive number");
-                else validInput = true;
-            }
+            // User Feedback
             Console.Clear();
-
             Console.WriteLine(Outsorced.addSign);
             if (root != null)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("Your olf tree:");
+                Console.WriteLine("Your old tree:");
                 Print.PrintTreeMain(root, 31);
             }
             Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Add number {newNode} to the tree.");
 
-            // Add and rotate
+            // ADD AND ROTATE
             root = Add.Add(root, newNode);
             root = Check.CheckRotateNeed(root);
 
-            // Print the Tree
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\nYOUR NEW TREE:");
-            Print.PrintTreeMain(root, 31);
-
-            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");
-            Console.ReadKey();
-
-            Console.Clear();
+            // Print final tree
+            PrintTreeLines(root);
 
             return root;
         }
@@ -83,22 +68,12 @@ namespace AvlTree
         /// <returns></returns>
         public void SearchNode(Node root)
         {
-            int searchValue = 0;
-            string input;
-            bool validInput = false;
-
             // User Input
             Console.WriteLine(Outsorced.addSign);
             Console.WriteLine("\nInsert a number you want to search in the tree.\n");
 
-            while (!validInput)
-            {
-                input = Console.ReadLine();
+            int searchValue = Input();
 
-                if (!int.TryParse(input, out searchValue) || searchValue < 0)
-                    Outsorced.WriteColor(true, ConsoleColor.DarkRed, "This is an invalid input, please enter a positive number");
-                else validInput = true;
-            }
             Console.Clear();
             Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Search number {searchValue} in the tree.");
 
@@ -108,16 +83,8 @@ namespace AvlTree
                 Outsorced.WriteColor(true, ConsoleColor.Red, "The number does not exist in the tree.");
             else Outsorced.WriteColor(true, ConsoleColor.Green, $"The number is in the tree {count} times.");
 
-            // Print the Tree
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\nYOUR TREE:");
-            Print.PrintTreeMain(root, 31);
-            Console.ResetColor();
-
-            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");
-            Console.ReadKey();
-
-            Console.Clear();
+            // Print final tree
+            PrintTreeLines(root);
         }
 
         /// <summary>
@@ -127,10 +94,6 @@ namespace AvlTree
         /// <returns></returns>
         public Node DeleteNode(Node root)
         {
-            int deleteValue = 0;
-            string input;
-            bool validInput = false;
-
             // User Input
             Console.WriteLine(Outsorced.addSign);
             Console.WriteLine("\nInsert a number you want to delete from the tree.");
@@ -140,31 +103,23 @@ namespace AvlTree
             Print.PrintTreeMain(root, 31);
             Console.ResetColor();
 
-            while (!validInput)
+            // User Input and DELETE
+            Node deleteNode = null;
+            int deleteValue;
+
+            while (deleteNode == null) ;
             {
-                input = Console.ReadLine();
-
-                if (!int.TryParse(input, out deleteValue) || deleteValue < 0)
-                    Outsorced.WriteColor(true, ConsoleColor.DarkRed, "This is an invalid input, please enter a number from the Tree");
-                else validInput = true;
+                deleteValue = Input();
+                deleteNode = Search.SearchNode(root, deleteValue);
             }
+            root = Delete.DeleteMain(root, deleteNode);
+
             //Console.Clear();
-            Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Add number {deleteValue} to the tree.");
+            Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Delete number {deleteValue} from the tree.");
 
-            // Delete
-            Node deleteNode = Search.SearchNode(root, deleteValue, null);
-            //root = Delete.DeleteMain(root, deleteNode);
 
-            // Print the Tree
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\nYOUR TREE:");
-            Print.PrintTreeMain(root, 15);
-            Console.ResetColor();
-
-            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");
-            Console.ReadKey();
-
-            Console.Clear();
+            // Print final tree
+            PrintTreeLines(root);
 
             return root;
         }
@@ -178,16 +133,47 @@ namespace AvlTree
         {
             Console.WriteLine(Outsorced.printSign);
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\nYOUR TREE:");
-            Print.PrintTreeMain(root, 31);
-            Console.ResetColor();
-
-            Outsorced.WriteColor(true, ConsoleColor.Green, "\nTREE NUMBERS SORTED:");
+            Outsorced.WriteColor(true, ConsoleColor.Green, "TREE NUMBERS SORTED:");
             Console.ForegroundColor = ConsoleColor.Blue;
             int count = PrintTravers.TraversInCount(root);
 
-            Outsorced.WriteColor(true, ConsoleColor.Green, $"\nThere are {count} nodes in the tree.");
+            Outsorced.WriteColor(true, ConsoleColor.Green, $"\nThere are {count} nodes in the tree.\n");
+            Console.ResetColor();
+
+            PrintTreeLines(root);
+        }
+
+        /// <summary>
+        /// Let the user insert a number (has to be positive and an int)
+        /// </summary>
+        /// <returns></returns>
+        private int Input()
+        {
+            int value = 0;
+            string input;
+            bool validInput = false;
+
+            while (!validInput)
+            {
+                input = Console.ReadLine();
+
+                if (!int.TryParse(input, out value) || value < 0)
+                    Outsorced.WriteColor(true, ConsoleColor.DarkRed, "This is an invalid input.");
+                else validInput = true;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Print the actual tree
+        /// </summary>
+        /// <param name="root"></param>
+        private void PrintTreeLines(Node root)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\nYOUR TREE:");
+            Print.PrintTreeMain(root, 15);
             Console.ResetColor();
 
             Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");

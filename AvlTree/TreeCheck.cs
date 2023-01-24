@@ -43,9 +43,9 @@ namespace AvlTree
             int heightRight = 0;
 
             if(node.Left != null)
-                heightLeft = NodeHeight(node.Left, 0);
+                heightLeft = NodeHeight(node.Left);
             if(node.Right != null)
-                heightRight = NodeHeight(node.Right, 0);
+                heightRight = NodeHeight(node.Right);
 
             int height = heightRight - heightLeft;
 
@@ -61,16 +61,16 @@ namespace AvlTree
         /// <param name="node">the node to check the height</param>
         /// <param name="height">insert 0</param>
         /// <returns></returns>
-        private int NodeHeight(Node node, int height)
+        public int NodeHeight(Node node, int height = 0)
         {
             height++;
             int heightLeft = height;
             int heightRight = height;
 
             if (node.Left != null)
-                heightLeft += NodeHeight(node.Left, 0);
+                heightLeft += NodeHeight(node.Left);
             if (node.Right != null)
-                heightRight += NodeHeight(node.Right, 0);
+                heightRight += NodeHeight(node.Right);
 
             // take the higher value (either left or right) to avoid double the height at 2 childs
             height = heightLeft > heightRight ? heightLeft : heightRight;   
