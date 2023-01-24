@@ -9,25 +9,21 @@ namespace AvlTree
     internal class TreeSearch
     {
         /// <summary>
-        /// Search for a number in the Tree -- DOES NOT WORK YET
+        /// Search for a number in the Tree
         /// </summary>
-        /// <param name="root">Insert the root of the tree</param>
-        public void Search(Node root, int searchNumber)
-        {
-            int count = SearchPre(root, searchNumber, 0);
-            if (count == 0) Console.WriteLine("The number does not exist in the tree.");
-            else Console.WriteLine($"The number is in the tree {count} times.");
-        }
-
-        private int SearchPre(Node node, int value, int count)
+        /// <param name="node">The root node</param>
+        /// <param name="value">The searched number</param>
+        /// <param name="count">Insert 0 or nothing</param>
+        /// <returns>The amount of nodes with this number</returns>
+        public int SearchValue(Node node, int value, int count = 0)
         {
             if (node != null & node.value == value) count++;
 
-            if (node.value <= value && node.Left != null)
-                count = SearchPre(node.Left, value, count);
+            if (value >= node.value && node.Right != null)
+                count = SearchValue(node.Right, value, count);
 
-            else if (node.value >= value && node.Right != null)
-                count = SearchPre(node.Right, value, count);
+            else if (value <= node.value && node.Left != null)
+                count = SearchValue(node.Left, value, count);
 
             return count;
         }

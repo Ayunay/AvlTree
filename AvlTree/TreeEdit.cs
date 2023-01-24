@@ -69,7 +69,7 @@ namespace AvlTree
         /// <returns></returns>
         public void SearchNode(Node root)
         {
-            int searchNode = 0;
+            int searchValue = 0;
             string input;
             bool validInput = false;
 
@@ -81,15 +81,18 @@ namespace AvlTree
             {
                 input = Console.ReadLine();
 
-                if (!int.TryParse(input, out searchNode) || searchNode < 0)
+                if (!int.TryParse(input, out searchValue) || searchValue < 0)
                     Outsorced.WriteColor(true, ConsoleColor.DarkRed, "This is an invalid input, please enter a positive number");
                 else validInput = true;
             }
             Console.Clear();
-            Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Search number {searchNode} in the tree.");
+            Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Search number {searchValue} in the tree.");
 
             // Search
-            
+            int count = Search.SearchValue(root, searchValue);
+            if (count == 0) 
+                Outsorced.WriteColor(true, ConsoleColor.Red, "The number does not exist in the tree.");
+            else Outsorced.WriteColor(true, ConsoleColor.Green, $"The number is in the tree {count} times.");
 
             // Print the Tree
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -97,7 +100,7 @@ namespace AvlTree
             Print.PrintTreeMain(root, 31);
             Console.ResetColor();
 
-            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "Press any key to continue");
+            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");
             Console.ReadKey();
 
             Console.Clear();
