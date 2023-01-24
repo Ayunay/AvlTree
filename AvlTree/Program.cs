@@ -13,7 +13,8 @@ namespace AvlTree
             TreeAdd Add = new TreeAdd();
             TreeCheck Check = new TreeCheck();
             TreeDelete Delete = new TreeDelete();
-            TreePrint Print = new TreePrint();
+            TreePrint PrintTree = new TreePrint();
+            TreePrintTraversal PrintTravers = new TreePrintTraversal();
 
             Node root = null;
 
@@ -37,7 +38,7 @@ namespace AvlTree
                 root = Add.Add(root, zahlen[i]);
 
                 Console.WriteLine($"\nADD: {zahlen[i]}");
-                Print.PrintTree(root, 31);
+                PrintTree.PrintTree(root, zahlen.Length + 5);
 
                 // Check Rotation
                 root = Check.CheckRotateNeed(root);
@@ -46,13 +47,14 @@ namespace AvlTree
 
 
             // Print out the Tree
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\nFINAL TREE:");
-            Print.PrintTree(root, zahlen.Length+5);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\n>> FINAL TREE:");
+            PrintTree.PrintTree(root, zahlen.Length+5);
             Console.WriteLine("\n");
             
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Print.TraversIn(root);
+
+            Console.WriteLine("\nNode Count: " + PrintTravers.TraversInCount(root));
             Console.WriteLine("");
 
             Console.ResetColor();

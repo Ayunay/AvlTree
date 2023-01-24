@@ -7,70 +7,19 @@ using System.Xml.Linq;
 
 namespace AvlTree
 {
+    /// <summary>
+    /// Call the "PrintTree" Method to print the Tree in Tree Format (up-down)
+    /// It can be valued in different sizes, depending on the amount of nodes in the tree
+    /// Valid sizes are:
+    /// - Height 0: 1
+    /// - Height 1: 3
+    /// - Height 2: 7
+    /// - Height 3: 15
+    /// - Height 4: 31
+    /// Empty nodes in the tree are shown as the string "emptyNode"
+    /// </summary>
     internal class TreePrint
     {
-        /// <summary>
-        /// Print the whole Tree in Pre-Order (Root-Left-Right)
-        /// </summary>
-        /// <param name="node">The Root node</param>
-        public void TraversPre(Node node)
-        {
-            if (node == null) return;
-
-            Console.WriteLine(node.value);
-
-            TraversPre(node.Left);
-            TraversPre(node.Right);
-        }
-
-        /// <summary>
-        /// Print the whole Tree in In-Order (sorted from small to big - Left-Root-Right)
-        /// </summary>
-        /// <param name="node">The Root node</param>
-        public void TraversIn(Node node)
-        {
-            if (node == null) return;
-
-            if (node.Left != null)
-                TraversIn(node.Left);
-
-            Console.Write($"{node.value} ");
-
-            if (node.Right != null)
-                TraversIn(node.Right);
-        }
-
-        /// <summary>
-        /// Print the whole tree in Post-Order (Left-Right-Root)
-        /// </summary>
-        /// <param name="node"></param>
-        public void TraversPost(Node node)
-        {
-            if (node == null) return;
-
-            if (node.Left != null)
-                TraversPost(node.Left);
-
-            if (node.Right != null)
-                TraversPost(node.Right);
-
-            if (node.value < 10) Console.Write(" ");
-            Console.Write($"{node.value} ");
-        }
-
-        #region Print Tree as Tree Format
-        /// <summary>
-        /// Call the "PrintTree" Method to print the Tree in Tree Format (up-down)
-        /// It can be valued in different sizes, depending on the amount of nodes in the tree
-        /// Valid sizes are:
-        /// - Height 0: 1
-        /// - Height 1: 3
-        /// - Height 2: 7
-        /// - Height 3: 15
-        /// - Height 4: 31
-        /// Empty nodes in the tree are shown as the string "emptyNode"
-        /// </summary>
-        
         string emptyNode = " . ";   // Important: Chose a symbol and leave one space before and after
         
         /// <summary>
@@ -287,7 +236,5 @@ namespace AvlTree
                 Console.Write(emptyNode);
             }
         }
-
-        #endregion
     }
 }
