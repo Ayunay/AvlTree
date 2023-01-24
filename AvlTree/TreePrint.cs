@@ -29,7 +29,7 @@ namespace AvlTree
         /// </summary>
         /// <param name="root">root of the tree</param>
         /// <param name="count">amount of nodes in the tree ... or: 1 / 3 / 7 / 15 / 31 for the heights</param>
-        public void PrintTree(Node root, int count)
+        public void PrintTreeMain(Node root, int count)
         {
             // make sure that the count variable is one of the numbers, no matter what was inserted
             if (count <= 1) count = 1;
@@ -41,13 +41,20 @@ namespace AvlTree
 
             count--;    // count = 30
 
+            if (root == null) count = 0;
+
             // HEIGHT 0
-            ForEmptySpace(count);   // 30
-            PrintNode(root);
-            Console.WriteLine();
+            if(count >= 2)
+            {
+                ForEmptySpace(count);   // 30
+                PrintNode(root);
+                Console.WriteLine();
+            }
+
+            if (root.Left == null && root.Right == null) count = 0;
 
             // HEIGHT 1
-            if(count >= 2)
+            if (count >= 2)
             {
                 if(root != null)
                     PrintChilds(root, count, true);         // 30
@@ -76,7 +83,7 @@ namespace AvlTree
             count = (count / 2) - 1;                // count = 6
 
             // HEIGHT 3
-            if(count >= 2)
+            if (count >= 2)
             {
                 if(root.Left != null)
                     PrintTreeDown(root.Left, count, true);  // 6

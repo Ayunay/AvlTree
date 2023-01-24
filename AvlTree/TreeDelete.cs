@@ -8,22 +8,17 @@ namespace AvlTree
 {
     internal class TreeDelete
     {
-        public void Delete(Node node, int value)
+        public Node DeleteMain(Node root, Node deleteNode)
         {
-            // if left child exists - move it up to the parents position
-            if (node.Left != null)
-            {
-                Node tempParent = node.Parent;
-                node = node.Left;
-                node.Left = tempParent;
-            }
-            // if a right child exists (no matter the left child) - move the right one to the parents position
-            else
-            {
-                Node tempParent = node.Parent;
-                node = node.Right;
-                node.Parent = tempParent;
-            }
+            root = Delete(deleteNode);
+            return root;
+        }
+
+
+        private Node Delete(Node node)
+        {
+            
+            return node;
         }
     }
 }
