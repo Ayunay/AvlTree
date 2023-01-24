@@ -47,7 +47,7 @@ namespace AvlTree
 
             // Print out the Tree
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("");
+            Console.WriteLine("\nFINAL TREE:");
             Print.PrintTree(root, zahlen.Length+5);
             Console.WriteLine("\n");
             

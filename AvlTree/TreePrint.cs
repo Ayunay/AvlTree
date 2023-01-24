@@ -93,12 +93,12 @@ namespace AvlTree
             count--;    // count = 30
 
             // HEIGHT 0
-            ForEmpty(count);   // 30
+            ForEmptySpace(count);   // 30
             PrintNode(root);
             Console.WriteLine();
 
             // HEIGHT 1
-            if(count <= 30)
+            if(count >= 2)
             {
                 if(root != null)
                     PrintChilds(root, count, true);         // 30
@@ -107,103 +107,95 @@ namespace AvlTree
             count = (count / 2) - 1;                // count = 14
 
             // HEIGHT 2
-            if(count <= 14)
+            if(count >= 2)
             {
                 if(root.Left != null)
                     PrintChilds(root.Left, count, true);    // 14
                 else
                 {
-                    ForEmpty(count / 2);
-                    Console.Write(emptyNode);
-                    ForEmpty(count - 1);
-                    Console.Write(emptyNode);
-
+                    ForEmptyNumber(1, count, true);
+                    ForEmptyNumber(1, count, false);
                 }
                 if (root.Right != null)
                     PrintChilds(root.Right, count, false);  // 14
                 else
                 {
-                    ForEmpty(count / 2);
-                    Console.Write(emptyNode);
-                    ForEmpty(count - 1);
-                    Console.Write(emptyNode);
-
+                    ForEmptyNumber(2, count, false);
                 }
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 6
 
-            if(count <= 6)
+            // HEIGHT 3
+            if(count >= 2)
             {
                 if(root.Left != null)
                     PrintTreeDown(root.Left, count, true);  // 6
                 else
                 {
-                    ForEmpty(count / 2);
-                    Console.Write(emptyNode);
-                    ForEmpty(count - 1);
-                    Console.Write(emptyNode);
-
+                    ForEmptyNumber(1, count, true);
+                    ForEmptyNumber(3, count, false);
                 }
                 if (root.Right != null)
                     PrintTreeDown(root.Right, count, false);// 6
                 else
                 {
-                    ForEmpty(count / 2);
-                    Console.Write(emptyNode);
-                    ForEmpty(count - 1);
-                    Console.Write(emptyNode);
-
+                    ForEmptyNumber(4, count, false);
                 }
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 2
 
-            if (count <= 2)
+            // HEIGHT 4
+            if (count >= 2)
             {
                 if(root.Left != null)
                     PrintTree4(root.Left, count);   // 2
                 else
                 {
-                    ForEmpty(count / 2);
-                    Console.Write(emptyNode);
-                    ForEmpty(count - 1);
-                    Console.Write(emptyNode);
-
+                    ForEmptyNumber(1, count, true);
+                    ForEmptyNumber(7, count, false);
                 }
                 if (root.Right != null)
                     PrintTree4(root.Right, count);  // 2
                 else
                 {
-                    ForEmpty(count / 2);
-                    Console.Write(emptyNode);
-                    ForEmpty(count - 1);
-                    Console.Write(emptyNode);
-
+                    ForEmptyNumber(8, count, false);
                 }
             }
+
+            Console.WriteLine();
+            // now count should definitely be < 2
         }
 
         /// <summary>
         /// Intermediate Step for the height 4
         /// </summary>
         /// <param name="node"></param>
-        /// <param name="count"></param>
+        /// <param name="count">'count'</param>
         private void PrintTree4(Node node, int count)
         {
             // HEIGHT 4
             if(node.Left != null)
                 PrintTreeDown(node.Left, count, false);
+            else
+            {
+                ForEmptyNumber(4, count, false);
+            }
             if(node.Right != null)
                 PrintTreeDown(node.Right, count, false);
+            else
+            {
+                ForEmptyNumber(4, count, false);
+            }
         }
 
         /// <summary>
         /// Intermediate Step for the height 3 and 4 (no direct childs/grandchilds of the root)
         /// </summary>
         /// <param name="node"></param>
-        /// <param name="count"></param>
-        /// <param name="first"></param>
+        /// <param name="count">'count'</param>
+        /// <param name="first">is it the very left node of this tree height?</param>
         private void PrintTreeDown(Node node, int count, bool first)
         {
             // HEIGHT 3 / 4
@@ -211,37 +203,30 @@ namespace AvlTree
                 PrintChilds(node.Left, count, first);     // 6
             else
             {
-                ForEmpty(count / 2);
-                Console.Write(emptyNode);
-                ForEmpty(count - 1);
-                Console.Write(emptyNode);
-
+                ForEmptyNumber(1, count, first);
+                ForEmptyNumber(1, count, false);
             }
             if (node.Right != null)
                 PrintChilds(node.Right, count, false);      // 6
             else
             {
-                ForEmpty(count - 1);
-                Console.Write(emptyNode);
-                ForEmpty(count - 1);
-                Console.Write(emptyNode);
-
+                ForEmptyNumber(2, count, false);
             }
         }
 
         /// <summary>
         /// Prints the left and right child of the inserted node
         /// </summary>
-        /// <param name="root"></param>
-        /// <param name="count"></param>
-        /// <param name="first"></param>
+        /// <param name="node"></param>
+        /// <param name="count">'count'</param>
+        /// <param name="first">is it the very left node of this tree height?</param>
         private void PrintChilds(Node node, int count, bool first)
         {
             // count = 14 | 6 | 2
 
             // LEFT NODE
-            if (first) ForEmpty(count / 2); // 6 | 2 | 0
-            else ForEmpty(count - 1);       // 13 | 5 | 1
+            if (first) ForEmptySpace(count / 2); // 6 | 2 | 0
+            else ForEmptySpace(count - 1);       // 13 | 5 | 1
         
             if(node.Left != null)
                 PrintNode(node.Left);
@@ -251,25 +236,13 @@ namespace AvlTree
             }
 
             // RIGHT NODE
-            ForEmpty(count - 1);            // 13 | 5 | 1
+            ForEmptySpace(count - 1);            // 13 | 5 | 1
 
             if(node.Right != null)
                 PrintNode(node.Right);
             else
             {
                 Console.Write(emptyNode);
-            }
-        }
-
-        /// <summary>
-        /// For Loop with (i = 0; i < max; i++) Console.Write(" ");
-        /// </summary>
-        /// <param name="max">loop counts</param>
-        private void ForEmpty(int max)
-        {
-            for(int i = 0; i < max; i++)
-            {
-                Console.Write(" ");
             }
         }
 
@@ -285,6 +258,34 @@ namespace AvlTree
                 Console.Write($" {node.value} ");
             else if (node.value < 100)
                 Console.Write($" {node.value}");
+        }
+
+        /// <summary>
+        /// For Loop with (i = 0; i < max; i++) Console.Write(" ");
+        /// </summary>
+        /// <param name="loops">loop counts</param>
+        private void ForEmptySpace(int loops)
+        {
+            for(int i = 0; i < loops; i++)
+            {
+                Console.Write(" ");
+            }
+        }
+
+        /// <summary>
+        /// For Loop for empty nodes
+        /// </summary>
+        /// <param name="loops">loop counts</param>
+        /// <param name="count">insert 'count'</param>
+        /// <param name="first">is it the very left node of this tree height?</param>
+        private void ForEmptyNumber(int loops, int count, bool first)
+        {
+            for (int i = 0; i < loops; i++)
+            {
+                if (first) ForEmptySpace(count / 2);
+                else ForEmptySpace(count - 1);
+                Console.Write(emptyNode);
+            }
         }
 
         #endregion
