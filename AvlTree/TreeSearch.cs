@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace AvlTree
 {
@@ -15,22 +16,30 @@ namespace AvlTree
         /// <param name="value">The searched number</param>
         /// <param name="count">Insert 0 or nothing</param>
         /// <returns>The amount of nodes with this number</returns>
-        public int SearchValue(Node node, int value, int count = 0)
+        public int SearchValue(Node root, int value, int count = 0)
         {
-            if (node != null & node.value == value) count++;
+            if (root != null & root.value == value) count++;
 
-            if (value >= node.value && node.Right != null)
-                count = SearchValue(node.Right, value, count);
+            if (value >= root.value && root.Right != null)
+                count = SearchValue(root.Right, value, count);
 
-            else if (value <= node.value && node.Left != null)
-                count = SearchValue(node.Left, value, count);
+            else if (value <= root.value && root.Left != null)
+                count = SearchValue(root.Left, value, count);
 
             return count;
         }
 
-        public Node SearchNode(Node root, int searchNumber)
+        public Node SearchNode(Node root, int value, Node foundNode)
         {
-            return new Node();
+            if (root != null & root.value == value) return root;
+
+            if (value >= root.value && root.Right != null)
+                foundNode = SearchNode(root.Right, value, foundNode);
+
+            else if (value <= root.value && root.Left != null)
+                foundNode = SearchNode(root.Left, value, foundNode);
+
+            return foundNode;
         }
     }
 }

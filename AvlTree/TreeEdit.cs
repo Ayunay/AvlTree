@@ -32,6 +32,13 @@ namespace AvlTree
             Console.WriteLine(Outsorced.addSign);
             Console.WriteLine("\nInsert a number you want to add to the tree.\n" +
                               "The number has to be a full number (1 not 1.5) and greater than 0.");
+            if(root != null)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nYour actual tree:");
+                Print.PrintTreeMain(root, 31);
+                Console.ResetColor();
+            }
 
             while (!validInput)
             {
@@ -42,6 +49,14 @@ namespace AvlTree
                 else validInput = true;
             }
             Console.Clear();
+
+            Console.WriteLine(Outsorced.addSign);
+            if (root != null)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Your olf tree:");
+                Print.PrintTreeMain(root, 31);
+            }
             Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Add number {newNode} to the tree.");
 
             // Add and rotate
@@ -50,11 +65,10 @@ namespace AvlTree
 
             // Print the Tree
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\nYOUR TREE:");
+            Console.WriteLine("\nYOUR NEW TREE:");
             Print.PrintTreeMain(root, 31);
-            Console.ResetColor();
 
-            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "Press any key to continue");
+            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");
             Console.ReadKey();
 
             Console.Clear();
@@ -134,20 +148,20 @@ namespace AvlTree
                     Outsorced.WriteColor(true, ConsoleColor.DarkRed, "This is an invalid input, please enter a number from the Tree");
                 else validInput = true;
             }
-            Console.Clear();
+            //Console.Clear();
             Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Add number {deleteValue} to the tree.");
 
             // Delete
-            Node deleteNode = Search.SearchNode(root, deleteValue);
-            root = Delete.DeleteMain(root, deleteNode);
+            Node deleteNode = Search.SearchNode(root, deleteValue, null);
+            //root = Delete.DeleteMain(root, deleteNode);
 
             // Print the Tree
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\nYOUR TREE:");
-            Print.PrintTreeMain(root, 31);
+            Print.PrintTreeMain(root, 15);
             Console.ResetColor();
 
-            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "Press any key to continue");
+            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");
             Console.ReadKey();
 
             Console.Clear();
@@ -175,6 +189,11 @@ namespace AvlTree
 
             Outsorced.WriteColor(true, ConsoleColor.Green, $"\nThere are {count} nodes in the tree.");
             Console.ResetColor();
+
+            Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");
+            Console.ReadKey();
+
+            Console.Clear();
         }
     }
 }
