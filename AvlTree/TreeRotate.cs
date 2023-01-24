@@ -36,7 +36,7 @@ namespace AvlTree
                 // Parent of the new root node = my parent
                 node.Left.Parent = node.Parent; // child knows parent
 
-                // Is the ROot tree right or left of the parent
+                // Is the Root tree right or left of the parent
                 if (node.Parent.value > node.value)
                     node.Parent.Left = node.Left;
                 else node.Parent.Right = node.Left;  // parent knows child

@@ -29,7 +29,7 @@ namespace AvlTree
             return count;
         }
 
-        public Node SearchNode(Node root, int value, Node foundNode)
+        public Node SearchNode(Node root, int value, Node foundNode = null)
         {
             if (root != null & root.value == value) return root;
 

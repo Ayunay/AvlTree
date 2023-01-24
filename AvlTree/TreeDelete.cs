@@ -43,6 +43,18 @@ namespace AvlTree
             Node temp = GoToRightNode(node);
             Console.WriteLine("TEMP: " +temp.value);
 
+            // left child of temp on the position of temp (temp has no right child and it is the right child of its parent)
+            if (temp.Left != null)
+            {
+                temp.Left.Parent = temp.Parent;
+                temp.Parent.Right = temp.Left;
+            }
+            else temp.Parent.Right = null;
+
+            node.value = temp.value;
+
+            //node = SwitchTempToRoot(node, temp);
+
             return node;
         }
 
@@ -51,6 +63,54 @@ namespace AvlTree
             // Search the lowest number of the right side
             Node temp = GoToLeftNode(node);
             Console.WriteLine("TEMP: " + temp.value);
+
+            // right child of temp on the position of temp (temp has no left child and it is the left child of its parent)
+            if (temp.Right != null)
+            {
+                temp.Right.Parent = temp.Parent;
+                temp.Parent.Left = temp.Right;
+            }
+            else temp.Parent.Left = null;
+
+            node.value = temp.value;
+
+            //node = SwitchTempToRoot(node, temp);
+
+            return node;
+        }
+
+        private Node SwitchTempToRoot(Node node, Node temp)
+        {
+            // Connect node.Parent and temp
+            if (node.Parent != null)
+            {
+                // Parent of the new root node = my parent
+                temp.Parent = node.Parent; // child knows parent
+
+                // Is the Root tree right or left of the parent
+                if (node.Parent.value > node.value)
+                    node.Parent.Left = temp;
+                else node.Parent.Right = temp;  // parent knows child
+            }
+            else temp.Parent = null;
+
+            // temp mit den childs ver node verbinden
+            if (node.Right != null)
+            {
+                node.Right.Parent = temp;
+                temp.Right = node.Right;
+            }
+            else temp.Right = null;
+
+            if (node.Left != null)
+            {
+                node.Left.Parent = temp;
+                temp.Left = node.Left;
+            }
+            else temp.Left = null;
+
+            // node endgültig mit temp überschreiben
+            node = temp;
 
             return node;
         }

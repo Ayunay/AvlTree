@@ -105,9 +105,9 @@ namespace AvlTree
 
             // User Input and DELETE
             Node deleteNode = null;
-            int deleteValue;
+            int deleteValue = 0;
 
-            while (deleteNode == null) ;
+            while (deleteNode == null)
             {
                 deleteValue = Input();
                 deleteNode = Search.SearchNode(root, deleteValue);
@@ -115,11 +115,12 @@ namespace AvlTree
             root = Delete.DeleteMain(root, deleteNode);
 
             //Console.Clear();
-            Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Delete number {deleteValue} from the tree.");
+            Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Delete number {deleteValue} from the tree.\n");
 
 
             // Print final tree
-            PrintTreeLines(root);
+            if(root != null) PrintTreeLines(root);
+            else Outsorced.WriteColor(true, ConsoleColor.Cyan, "Your Tree is empty");
 
             return root;
         }
