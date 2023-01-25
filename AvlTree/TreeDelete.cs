@@ -51,7 +51,7 @@ namespace AvlTree
             }
             else temp.Parent.Right = null;
 
-            node.value = temp.value;
+            // node.value = temp.value;
 
             //node = SwitchTempToRoot(node, temp);
 
@@ -73,11 +73,11 @@ namespace AvlTree
             }
             else temp.Parent.Left = null;
             */
-            int tempValue = temp.value;
+            // int tempValue = temp.value;
 
             // temp.Parent = SwitchTempChild(temp.Parent, temp.Right, false);
 
-            node.value = tempValue;
+            // node.value = tempValue;
 
             //node = SwitchTempToRoot(node, temp);
 
