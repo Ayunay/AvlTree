@@ -16,7 +16,7 @@ namespace AvlTree
         {
             if (node == null) return;
 
-            Console.WriteLine(node.value);
+            Console.Write($"{node.value} ");
 
             TraversPre(node.Left);
             TraversPre(node.Right);

@@ -133,6 +133,10 @@ namespace AvlTree
         public void PrintTree(Node root)
         {
             Console.WriteLine(Outsorced.printSign);
+            
+            Outsorced.WriteColor(true, ConsoleColor.DarkYellow, "TREE NUMBERS (Pre-Order):");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            PrintTravers.TraversPre(root);
 
             Outsorced.WriteColor(true, ConsoleColor.Green, "TREE NUMBERS SORTED:");
             Console.ForegroundColor = ConsoleColor.Blue;

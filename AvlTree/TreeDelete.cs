@@ -64,6 +64,7 @@ namespace AvlTree
             Node temp = GoToLeftNode(node);
             Console.WriteLine("TEMP: " + temp.value);
 
+            /*
             // right child of temp on the position of temp (temp has no left child and it is the left child of its parent)
             if (temp.Right != null)
             {
@@ -71,12 +72,25 @@ namespace AvlTree
                 temp.Parent.Left = temp.Right;
             }
             else temp.Parent.Left = null;
+            */
+            int tempValue = temp.value;
 
-            node.value = temp.value;
+            // temp.Parent = SwitchTempChild(temp.Parent, temp.Right, false);
+
+            node.value = tempValue;
 
             //node = SwitchTempToRoot(node, temp);
 
             return node;
+        }
+
+        private Node SwitchTempChild(Node parent, Node child, bool leftTree)
+        {
+            child.Parent = parent;
+            if (leftTree) parent.Right = child;
+            else parent.Left = child;
+
+            return parent;
         }
 
         private Node SwitchTempToRoot(Node node, Node temp)
