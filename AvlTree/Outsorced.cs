@@ -99,30 +99,6 @@ namespace AvlTree
         }
 
         /// <summary>
-        /// Checks if the User input is a number and is in the given range (amount of options)
-        /// </summary>
-        /// <param name="options">how many options are there to choose</param>
-        /// <returns>The selected Option (int)</returns>
-        public int UserInput(int options)
-        {
-            int selection = 0;
-            bool validInput = false;
-
-            while (!validInput)     // Check if a number has been entered for the choice 
-            {
-                char input = Console.ReadKey(true).KeyChar;
-
-                if (!int.TryParse(input.ToString(), out selection) || selection == 0 || selection > options)
-                    WriteColor(true, ConsoleColor.Red, "Please pick one option from above.");
-                else validInput = true;
-            }
-
-            Console.Clear();
-
-            return selection;
-        }
-
-        /// <summary>
         /// Console.Write(line) in Color
         /// </summary>
         /// <param name="line">true: Console.Write || false: Console.WriteLine</param>

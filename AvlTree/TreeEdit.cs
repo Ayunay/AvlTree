@@ -10,7 +10,6 @@ namespace AvlTree
     internal class TreeEdit
     {
         TreeAdd Add = new TreeAdd();
-        TreeCheck Check = new TreeCheck();
         TreeSearch Search = new TreeSearch();
         TreeDelete Delete = new TreeDelete();
         TreePrint Print = new TreePrint();
@@ -25,7 +24,7 @@ namespace AvlTree
         /// <returns></returns>
         public Node AddNode(Node root)
         {
-            // User Feesback
+            // User Feedback
             Console.WriteLine(Outsorced.addSign);
             Console.WriteLine("\nInsert a number you want to add to the tree.\n" +
                               "The number has to be a full number (1 not 1.5) and greater than 0.");
@@ -53,7 +52,6 @@ namespace AvlTree
 
             // ADD AND ROTATE
             root = Add.Add(root, newNode);
-            root = Check.CheckRotateNeed(root);
 
             // Print final tree
             PrintTreeLines(root);
@@ -77,8 +75,9 @@ namespace AvlTree
             Console.Clear();
             Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Search number {searchValue} in the tree.");
 
-            // Search
+            // SEARCH
             int count = Search.SearchValue(root, searchValue);
+
             if (count == 0) 
                 Outsorced.WriteColor(true, ConsoleColor.Red, "The number does not exist in the tree.");
             else Outsorced.WriteColor(true, ConsoleColor.Green, $"The number is in the tree {count} times.");
@@ -112,7 +111,7 @@ namespace AvlTree
                 deleteValue = Input();
                 deleteNode = Search.SearchNode(root, deleteValue);
             }
-            root = Delete.DeleteMain(root, deleteNode);
+            root = Delete.Delete(root, deleteNode);
 
             //Console.Clear();
             Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Delete number {deleteValue} from the tree.\n");

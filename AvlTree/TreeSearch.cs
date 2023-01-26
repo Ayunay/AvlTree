@@ -29,6 +29,13 @@ namespace AvlTree
             return count;
         }
 
+        /// <summary>
+        /// Search for a number in the tree and return its node
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="value"></param>
+        /// <param name="foundNode"></param>
+        /// <returns></returns>
         public Node SearchNode(Node root, int value, Node foundNode = null)
         {
             if (root != null & root.value == value) return root;

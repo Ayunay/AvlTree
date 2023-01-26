@@ -16,12 +16,12 @@ namespace AvlTree
         /// <param name="root">The root of the Tree</param>
         /// <param name="deleteNode">The node that should be deleted</param>
         /// <returns></returns>
-        public Node DeleteMain(Node root, Node deleteNode)
+        public Node Delete(Node root, Node deleteNode)
         {
             if (root.Left == null && root.Right == null) return null;   // if both childs are null
             else if (root.Left == null) return root.Right;              // if one child is null, the other gets the new root
             else if (root.Right == null) return root.Left;
-            else return Delete(deleteNode);                             // if both childs exist, make one of then to the new root
+            else return DeleteCheck(deleteNode);                             // if both childs exist, make one of then to the new root
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace AvlTree
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        private Node Delete(Node node)
+        private Node DeleteCheck(Node node)
         {
             TreeCheck TreeCheck = new TreeCheck();
 
