@@ -1,0 +1,15 @@
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\bin\Debug\net6.0\AvlTree.exe
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\bin\Debug\net6.0\AvlTree.deps.json
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\bin\Debug\net6.0\AvlTree.runtimeconfig.json
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\bin\Debug\net6.0\AvlTree.dll
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\bin\Debug\net6.0\AvlTree.pdb
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.csproj.AssemblyReference.cache
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.AssemblyInfoInputs.cache
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.AssemblyInfo.cs
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.csproj.CoreCompileInputs.cache
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.dll
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\refint\AvlTree.dll
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.pdb
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\AvlTree.genruntimeconfig.cache
+C:\Users\mjabs\Documents\a_SaeStudium\Programming\AvlTree\AvlTree\obj\Debug\net6.0\ref\AvlTree.dll
