@@ -39,10 +39,28 @@ namespace AvlTree
 
         private Node MakeLeftToRoot(Node node)
         {
-            // Search the highest number of the left side 
-            Node temp = GoToRightNode(node);
-            Console.WriteLine("TEMP: " +temp.value);
+            TreePrint Print = new TreePrint();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Print.PrintTreeMain(node, 31);
 
+            // Search the highest number of the left side --> temp
+            Node temp = GoToRightNode(node);
+            Console.WriteLine("Temp: " + temp.value);
+
+            Node tempParent = GoToRightNode(node).Parent;
+            Console.WriteLine("TempParent: " + tempParent.value);
+
+            (temp, Node tempChild) = CreateTempLeft(node, temp);
+
+            Console.WriteLine("TempChild: " + tempChild.value);
+
+            tempParent.Right = tempChild;
+
+            
+            Print.PrintTreeMain(node, 31);
+            Console.ResetColor();
+
+            /*
             // left child of temp on the position of temp (temp has no right child and it is the right child of its parent)
             if (temp.Left != null)
             {
@@ -51,11 +69,40 @@ namespace AvlTree
             }
             else temp.Parent.Right = null;
 
-            // node.value = temp.value;
+            node.value = temp.value;
 
-            //node = SwitchTempToRoot(node, temp);
-
+            node = SwitchTempToRoot(node, temp);
+            */
             return node;
+        }
+
+        private (Node, Node) CreateTempLeft(Node node, Node temp)
+        {
+            // SET PARENT
+            if (node.Parent != null)
+            {
+                // Parent of the new root node = my parent
+                temp.Parent = node.Parent; // child knows parent
+
+                // Is the Root tree right or left of the parent
+                if (node.Parent.value > node.value)
+                    node.Parent.Left = temp;
+                else node.Parent.Right = temp;  // parent knows child
+            }
+            else temp.Parent = null;
+
+            // Save Child of temp (he can only have one child)
+            Node tempChild = null;
+            if (temp.Left != null) tempChild = temp.Left;
+            else if (temp.Right != null) tempChild = temp.Right;
+            if (tempChild.Parent != null) tempChild.Parent = null;  // Make sure that "temp" is out of the way
+
+            temp.Left = node.Left;
+            node.Left.Parent = temp;
+            temp.Right = node.Right;
+            node.Right.Parent = temp;
+
+            return (temp, tempChild);
         }
 
         private Node MakeRightToRoot(Node node)
@@ -63,6 +110,8 @@ namespace AvlTree
             // Search the lowest number of the right side
             Node temp = GoToLeftNode(node);
             Console.WriteLine("TEMP: " + temp.value);
+
+
 
             /*
             // right child of temp on the position of temp (temp has no left child and it is the left child of its parent)
@@ -72,18 +121,18 @@ namespace AvlTree
                 temp.Parent.Left = temp.Right;
             }
             else temp.Parent.Left = null;
+            
+            int tempValue = temp.value;
+
+            temp.Parent = SwitchTempChild(temp.Parent, temp.Right, false);
+
+            node.value = tempValue;
+
+            node = SwitchTempToRoot(node, temp);
             */
-            // int tempValue = temp.value;
-
-            // temp.Parent = SwitchTempChild(temp.Parent, temp.Right, false);
-
-            // node.value = tempValue;
-
-            //node = SwitchTempToRoot(node, temp);
-
             return node;
         }
-
+        /*
         private Node SwitchTempChild(Node parent, Node child, bool leftTree)
         {
             child.Parent = parent;
@@ -92,7 +141,7 @@ namespace AvlTree
 
             return parent;
         }
-
+        
         private Node SwitchTempToRoot(Node node, Node temp)
         {
             // Connect node.Parent and temp
@@ -128,7 +177,7 @@ namespace AvlTree
 
             return node;
         }
-
+        */
         private Node GoToLeftNode(Node node)
         {
             if (node.Left != null) node = GoToLeftNode(node);
