@@ -12,7 +12,6 @@ namespace AvlTree
         #region Check Height of all Nodes to check if we need to rotate
 
         TreeRotate Rotate = new TreeRotate();
-        TreePrint Print = new TreePrint();
 
         /// <summary>
         /// Post order to go through every node from bottom to top, to check if something needs to rotate
