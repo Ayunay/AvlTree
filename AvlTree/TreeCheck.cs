@@ -48,6 +48,7 @@ namespace AvlTree
 
             int height = heightRight - heightLeft;
 
+            // if height is < -1 or > 1 then rotate
             if (height == -2 || height == 2)
                 node = WhichRotation(node, height);
 
@@ -84,56 +85,45 @@ namespace AvlTree
         /// </summary>
         /// <param name="node">The imbalanced node</param>
         /// <param name="height">The height of the node (should be -2 or 2)</param>
-        /// <returns></returns>
+        /// <returns>The rotated part of the tree (with the root at the same position as inserted)</returns>
         private Node WhichRotation(Node node, int height)
         {
-            /*
-             * RightRight = node + node.Left + node.Left
-             * RightLeft = node + node.Right + node.Left
-             * LeftLeft = node + node.Right + node.Right
-             * LeftRight = node + node.Left + node.Right
-             */
-
             //PRINT TREE
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"\nROTATE node {node.value} cause of height {height}");
             Console.ResetColor();
 
-            // 2nd = Right Rotation
             if (height == -2)        
             {
                 // if problem is directly at node (when node has only one child)
                 if (node.Right == null)
                 {
-                    //one of them has to be null or there would be no imbalance
-                    if (node.Left.Left != null) 
-                        node = Rotate.RotateRightRight(node);  //RR
+                    if (node.Left.Left != null)
+                        node = Rotate.RotateRightRight(node);
                     else if (node.Left.Right != null)
-                        node = Rotate.RotateLeftRight(node);   //LR
+                        node = Rotate.RotateLeftRight(node);
                 }
                 // if problem is down the tree (when node has two childs)
                 else if (node.Left.Left.Left != null || node.Left.Left.Right != null)
-                    node = Rotate.RotateRightRight(node);      //RR
+                    node = Rotate.RotateRightRight(node);
                 else if (node.Left.Right.Left != null || node.Left.Right.Right != null)
-                    node = Rotate.RotateLeftRight(node);       //LR
+                    node = Rotate.RotateLeftRight(node);
             }
-            // 2nd = Left Rotation
             else if (height == 2)   
             {
                 // if problem is directly at node (when node has only one child)
                 if (node.Left == null)
                 {
-                    //one of them has to be null or there would be no imbalance
                     if (node.Right.Left != null)
-                        node = Rotate.RotateRightLeft(node);   //RL
+                        node = Rotate.RotateRightLeft(node);
                     else if (node.Right.Right != null)
-                        node = Rotate.RotateLeftLeft(node);    //LL
+                        node = Rotate.RotateLeftLeft(node);
                 }
                 // if problem is down the tree (when node has two childs)
                 else if (node.Right.Right.Left != null || node.Right.Right.Right != null)
-                    node = Rotate.RotateLeftLeft(node);        //LL
+                    node = Rotate.RotateLeftLeft(node);
                 else if (node.Right.Left.Left != null || node.Right.Left.Right != null)
-                    node = Rotate.RotateRightLeft(node);       //RL
+                    node = Rotate.RotateRightLeft(node);
             }
 
             return node;

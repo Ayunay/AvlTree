@@ -8,8 +8,6 @@ namespace AvlTree
 {
     internal class TreeDelete
     {
-        TreePrint Print = new TreePrint();  // for debugging
-
         /// <summary>
         /// Deletes a node in the tree and sort the rest of the tree so that there is no gap the the position of the deleted node
         /// </summary>
@@ -21,7 +19,7 @@ namespace AvlTree
             if (root.Left == null && root.Right == null) return null;   // if both childs are null
             else if (root.Left == null) return root.Right;              // if one child is null, the other gets the new root
             else if (root.Right == null) return root.Left;
-            else return DeleteCheck(deleteNode);                             // if both childs exist, make one of then to the new root
+            else return DeleteCheck(deleteNode);                        // if both childs exist, make one of then to the new root
         }
 
         /// <summary>
@@ -52,36 +50,18 @@ namespace AvlTree
         /// <returns>The Node on the position of the deleted node</returns>
         private Node MakeLeftToRoot(Node node)
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Print.PrintTreeMain(node, 31);
-
             // Search the highest number of the left side --> temp
             Node temp = GoToRightNode(node.Left);
-            Console.WriteLine("Temp: " + temp.value);
-
             
             Node tempParent = temp.Parent;
-            Console.WriteLine("TempParent: " + tempParent.value);
 
             // Move the child of temp 
             if (tempParent != node)
-            {
-                // as right child of temp.Parent
-                tempParent.Right = SetTempChild(temp);
-                Console.WriteLine("TempParentRight: " + tempParent.Right.value);
-            }
-            else
-            {
-                // as left child of node / new Temp
-                node.Left = SetTempChild(temp);
-                Console.WriteLine("NodeLeft: " + node.Left.value);
-            }
-            
+                tempParent.Right = SetTempChild(temp);  // as right child of temp.Parent
+            else node.Left = SetTempChild(temp);        // as left child of root / new temp
+
             // create Temp (the new node) -- note: temp does not exist in the node-tree, there it is already overwritten with its child
             node = CreateTemp(node, temp);
-
-            Print.PrintTreeMain(node, 31);
-            Console.ResetColor();
 
             return node;
         }
@@ -93,35 +73,18 @@ namespace AvlTree
         /// <returns>The Node on the position of the deleted node</returns>
         private Node MakeRightToRoot(Node node)
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Print.PrintTreeMain(node, 31);
-
             // Search the highest number of the right side --> temp
             Node temp = GoToLeftNode(node.Right);
-            Console.WriteLine("Temp: " + temp.value);
 
             Node tempParent = temp.Parent;
-            Console.WriteLine("TempParent: " + tempParent.value);
 
             // Move the child of temp 
             if (tempParent != node)
-            {
-                // as left child of temp.Parent
-                tempParent.Left = SetTempChild(temp);
-                Console.WriteLine("TempParentRight: " + tempParent.Left.value);
-            }
-            else
-            {
-                // as right child of node / new Temp
-                node.Right = SetTempChild(temp);
-                Console.WriteLine("NodeLeft: " + node.Right.value);
-            }
+                tempParent.Left = SetTempChild(temp);   // as left child of temp.Parent
+            else node.Right = SetTempChild(temp);       // as right child of node / new Temp
 
             // create Temp (the new node) -- note: temp does not exist in the node-tree, there it is already overwritten with its child
             node = CreateTemp(node, temp);
-
-            Print.PrintTreeMain(node, 31);
-            Console.ResetColor();
 
             return node;
         }
@@ -140,8 +103,6 @@ namespace AvlTree
 
             // Set temp.Parent to child.Parent
             if (tempChild.Parent != null) tempChild.Parent = temp.Parent;
-
-            if (tempChild != null) Console.WriteLine("TempChild: " + tempChild.value);
 
             return tempChild;
         }

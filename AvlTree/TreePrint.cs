@@ -39,14 +39,14 @@ namespace AvlTree
             else if (count <= 31) count = 31;
             else if (count > 31) count = 31;
 
-            count--;    // count = 30
+            count--;    // e.g. count = 30
 
             if (root == null) count = 0;
 
             // HEIGHT 0
             if(count >= 2)
             {
-                ForEmptySpace(count);   // 30
+                ForEmptySpace(count);
                 PrintNode(root);
                 Console.WriteLine();
             }
@@ -57,7 +57,7 @@ namespace AvlTree
             if (count >= 2)
             {
                 if(root != null)
-                    PrintChilds(root, count, true);         // 30
+                    PrintChilds(root, count, true);
                 Console.WriteLine();
             }
             count = (count / 2) - 1;                // count = 14
@@ -66,14 +66,14 @@ namespace AvlTree
             if(count >= 2)
             {
                 if(root.Left != null)
-                    PrintChilds(root.Left, count, true);    // 14
+                    PrintChilds(root.Left, count, true);
                 else
                 {
                     ForEmptyNumber(1, count, true);
                     ForEmptyNumber(1, count, false);
                 }
                 if (root.Right != null)
-                    PrintChilds(root.Right, count, false);  // 14
+                    PrintChilds(root.Right, count, false);
                 else
                 {
                     ForEmptyNumber(2, count, false);
@@ -86,14 +86,14 @@ namespace AvlTree
             if (count >= 2)
             {
                 if(root.Left != null)
-                    PrintTreeDown(root.Left, count, true);  // 6
+                    PrintTreeDown(root.Left, count, true);
                 else
                 {
                     ForEmptyNumber(1, count, true);
                     ForEmptyNumber(3, count, false);
                 }
                 if (root.Right != null)
-                    PrintTreeDown(root.Right, count, false);// 6
+                    PrintTreeDown(root.Right, count, false);
                 else
                 {
                     ForEmptyNumber(4, count, false);
@@ -106,14 +106,14 @@ namespace AvlTree
             if (count >= 2)
             {
                 if(root.Left != null)
-                    PrintTree4(root.Left, count);   // 2
+                    PrintTree4(root.Left, count);
                 else
                 {
                     ForEmptyNumber(1, count, true);
                     ForEmptyNumber(7, count, false);
                 }
                 if (root.Right != null)
-                    PrintTree4(root.Right, count);  // 2
+                    PrintTree4(root.Right, count);
                 else
                 {
                     ForEmptyNumber(8, count, false);
@@ -156,7 +156,7 @@ namespace AvlTree
         {
             // HEIGHT 3 / 4
             if (node.Left != null)
-                PrintChilds(node.Left, count, first);     // 6
+                PrintChilds(node.Left, count, first);       // 6
             else
             {
                 ForEmptyNumber(1, count, first);
@@ -181,7 +181,7 @@ namespace AvlTree
             // count = 14 | 6 | 2
 
             // LEFT NODE
-            if (first) ForEmptySpace(count / 2); // 6 | 2 | 0
+            if (first) ForEmptySpace(count / 2); //  6 | 2 | 0
             else ForEmptySpace(count - 1);       // 13 | 5 | 1
         
             if(node.Left != null)
