@@ -8,73 +8,64 @@ using System.Xml.Linq;
 
 namespace AvlTree
 {
-    /// <summary>
-    /// RightRight = node + node.Left  + node.Left
-    /// LeftRight  = node + node.Left  + node.Right
-    /// RightLeft  = node + node.Right + node.Left
-    /// LeftLeft   = node + node.Right + node.Right
-    /// </summary>
     internal class TreeRotate
     {
+        /// <summary>
+        /// Main nodes to rotate: node + node.Left  + node.Left.Left
+        /// </summary>
+        /// <param name="node">The node with the height differnence of 2 / -2</param>
+        /// <returns></returns>
         public Node RotateRightRight(Node node)
         {
-            /*
-             * height = -2
-             * 
-             * Szenario 1 direct:
-             * node has no right child
-             * left child has a left child but no right child (--> LR-Rotation)
-             * 
-             * Szenario 2 indirect:
-             * node has a right child, but this one has no more childs
-             * left node has a left child but no right child (--> LR-Rotation)
-             * left child of left child has one child (left or right)
-             */
-
             if (node.Parent != null)
             {
                 // Parent of the new root node = my parent
-                node.Left.Parent = node.Parent; // child knows parent
+                node.Left.Parent = node.Parent;
 
                 // Is the Root tree right or left of the parent
                 if (node.Parent.value > node.value)
                     node.Parent.Left = node.Left;
-                else node.Parent.Right = node.Left;  // parent knows child
+                else node.Parent.Right = node.Left;
             }
             else node.Left.Parent = null;
 
-            node.Left.Right = node;     // I am the right child of the new node
-            node.Parent = node.Left;    // and he is my parent
+            // save the right child of node.Left in temp and set its parent
+            Node temp = null;
+            if (node.Left.Right != null)
+            {
+                temp = node.Left.Right;
+                temp.Parent = node;
+            }
 
-            node.Left = null;           // I dont have any childs (because my only child is my parent now)
+            // node.Left as Parent of node
+            node.Left.Right = node;
+            node.Parent = node.Left;
+
+            // set the left child of root.Right (as temp or null)
+            if (temp != null)
+                node.Left = temp;
+            else node.Left = null;
 
             return node.Parent;
         }
 
+        /// <summary>
+        /// Main nodes to rotate: node + node.Left + node.Left.Right
+        /// </summary>
+        /// <param name="node">The node with the height differnence of 2 / -2</param>
+        /// <returns></returns>
         public Node RotateLeftRight(Node node)
         {
-            /*
-             * height = -2
-             * 
-             * Szenario 1 direct:
-             * node has no right child
-             * left child has a right child but no left child (--> RR-Rotation)
-             * 
-             * Szenario 2 indirect:
-             * node has a right child, but this one has no more childs
-             * left node has a right child but no left child (--> RR-Rotation)
-             * right child of left child has one child (left or right)
-             */
-
+            // Set Parent of new root node
             if (node.Parent != null)
             {
                 // Parent of the new root node = my parent
-                node.Left.Right.Parent = node.Parent;       // new root knows parent
+                node.Left.Right.Parent = node.Parent;
 
                 // Is the Root tree right or left of the parent
                 if (node.Parent.value > node.value)
                     node.Parent.Left = node.Left.Right;
-                else node.Parent.Right = node.Left.Right;   // parent knows new root
+                else node.Parent.Right = node.Left.Right;
             }
             else node.Left.Right.Parent = null;
 
@@ -117,30 +108,23 @@ namespace AvlTree
             return node.Parent;
         }
 
+        /// <summary>
+        /// Main nodes to rotate: node + node.Right + node.Right.Left
+        /// </summary>
+        /// <param name="node">The node with the height differnence of 2 / -2</param>
+        /// <returns></returns>
         public Node RotateRightLeft(Node node)
         {
-            /*
-             * height = +2
-             * 
-             * Szenario 1 direct:
-             * node has no left child
-             * right child has a left child but no right child (--> LL-Rotation)
-             * 
-             * Szenario 2 indirect:
-             * node has a left child, but this one has no childs
-             * right node has a left child but no right child (--> LL-Rotation)
-             * left child of right child has one child (left or right)
-             */
-
+            // Set Parent of new root node
             if (node.Parent != null)
             {
                 // Parent of the new root node = my parent
-                node.Right.Left.Parent = node.Parent;       // new root knows parent
+                node.Right.Left.Parent = node.Parent;
 
                 // Is the Root tree right or left of the parent
                 if (node.Parent.value > node.value)
                     node.Parent.Left = node.Right.Left;
-                else node.Parent.Right = node.Right.Left;   // parent knows new root
+                else node.Parent.Right = node.Right.Left;
             }
             else node.Right.Left.Parent = null;
 
@@ -183,37 +167,42 @@ namespace AvlTree
             return node.Parent;
         }
 
+        /// <summary>
+        /// Main nodes to rotate: node + node.Right + node.Right.Right
+        /// </summary>
+        /// <param name="node">The node with the height differnence of 2 / -2</param>
+        /// <returns></returns>
         public Node RotateLeftLeft(Node node)
         {
-            /*
-             * height = +2
-             * 
-             * Szenario 1 direct:
-             * node has no left child
-             * right child has a right child but no left child (--> RL-Rotation)
-             * 
-             * Szenario 2 indirect:
-             * node has a left child, but this one has no childs
-             * right node has a right child but no left child (--> RL-Rotation)
-             * right child of right child has one child (left or right)
-             */
-
+            // Set Parent of new root node
             if (node.Parent != null)
             {
                 // Parent of the new root node = my parent
-                node.Right.Parent = node.Parent; // child knows parent
+                node.Right.Parent = node.Parent;
 
-                // Is the ROot tree right or left of the parent
+                // Is the Root tree right or left of the parent
                 if (node.Parent.value > node.value)
                     node.Parent.Left = node.Right;
-                else node.Parent.Right = node.Right;  // parent knows child
+                else node.Parent.Right = node.Right;
             }
             else node.Right.Parent = null;
 
-            node.Right.Left = node;     // I am the right child of the new node
-            node.Parent = node.Right;    // and he is my parent
+            // save the left child of node.Right in temp and set its parent
+            Node temp = null;
+            if (node.Right.Left != null)
+            {
+                temp = node.Right.Left;
+                temp.Parent = node;
+            }
 
-            node.Right = null;           // I dont have any childs (because my only child is my parent now)
+            // node.Right as Parent of node
+            node.Right.Left = node;
+            node.Parent = node.Right;
+
+            // set the right child of root.Left (as temp or null)
+            if (temp != null)
+                node.Right = temp;
+            else node.Right = null;
 
             return node.Parent;
         }
