@@ -16,6 +16,7 @@ namespace AvlTree
         {
             if (node == null) return;
 
+            if (node.value < 10) Console.Write(" ");
             Console.Write($"{node.value} ");
 
             TraversPre(node.Left);
@@ -33,6 +34,7 @@ namespace AvlTree
             if (node.Left != null)
                 TraversIn(node.Left);
 
+            if (node.value < 10) Console.Write(" ");
             Console.Write($"{node.value} ");
 
             if (node.Right != null)

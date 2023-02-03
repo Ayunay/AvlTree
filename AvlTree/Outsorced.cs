@@ -62,7 +62,10 @@ namespace AvlTree
                                 "2. Delete a node \n" +
                                 "3. Search a node (value) \n" +
                                 "4. Print the whole tree \n" +
-                                "5. Exit my actual Tree > Important: This causes the tree to delete all data! \n");
+                                "5. Function for a Delegate: Print the tree in Pre-, Post- and In-Order \n" +
+                                "6. Exit my actual Tree > Important: This causes the tree to delete all data! \n" +
+                                "\nNote: If the Tree is sometimes not printed well or some numbers are not printet, " +
+                                "its because this tree is only for numbers lower than 100, if you take higher numbers they may be invisible!");
 
             char menuSelection = '0';
 
@@ -87,6 +90,15 @@ namespace AvlTree
                     case '4':
                         validMenuselection = true;
                         break;
+
+                    case '5':
+                        validMenuselection = true;
+                        break;
+
+                    case '6':
+                        validMenuselection = true;
+                        break;
+
 
                     default:
                         WriteColor(true, ConsoleColor.DarkRed, $"You insert > {menuSelection} < This is an invalid input.");

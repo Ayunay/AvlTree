@@ -14,8 +14,9 @@ namespace AvlTree
         TreeDelete Delete = new TreeDelete();
         TreePrint Print = new TreePrint();
         TreePrintTravers PrintTravers = new TreePrintTravers();
-
         Outsorced Outsorced = new Outsorced();
+
+        private delegate void PrintDelegate(Node root);
 
         /// <summary>
         /// Add a node to the tree
@@ -28,7 +29,7 @@ namespace AvlTree
             Console.WriteLine(Outsorced.addSign);
             Console.WriteLine("\nInsert a number you want to add to the tree.\n" +
                               "The number has to be a full number (1 not 1.5) and greater than 0.");
-            if(root != null)
+            if (root != null)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("\nYour actual tree:");
@@ -78,7 +79,7 @@ namespace AvlTree
             // SEARCH
             int count = Search.SearchValue(root, searchValue);
 
-            if (count == 0) 
+            if (count == 0)
                 Outsorced.WriteColor(true, ConsoleColor.Red, "The number does not exist in the tree.");
             else Outsorced.WriteColor(true, ConsoleColor.Green, $"The number is in the tree {count} times.");
 
@@ -118,7 +119,7 @@ namespace AvlTree
 
 
             // Print final tree
-            if(root != null) PrintTreeLines(root);
+            if (root != null) PrintTreeLines(root);
             else Outsorced.WriteColor(true, ConsoleColor.Cyan, "Your Tree is empty");
 
             return root;
@@ -132,12 +133,12 @@ namespace AvlTree
         public void PrintTree(Node root)
         {
             Console.WriteLine(Outsorced.printSign);
-            
+
             Outsorced.WriteColor(true, ConsoleColor.DarkYellow, "TREE NUMBERS (Pre-Order):");
             Console.ForegroundColor = ConsoleColor.Yellow;
             PrintTravers.TraversPre(root);
 
-            Outsorced.WriteColor(true, ConsoleColor.Green, "TREE NUMBERS SORTED:");
+            Outsorced.WriteColor(true, ConsoleColor.DarkBlue, "\nTREE NUMBERS SORTED:");
             Console.ForegroundColor = ConsoleColor.Blue;
             int count = PrintTravers.TraversInCount(root);
 
@@ -145,6 +146,63 @@ namespace AvlTree
             Console.ResetColor();
 
             PrintTreeLines(root);
+        }
+
+        public void PrintTreeDelegate(Node root)
+        {
+            PrintDelegate printDel = new PrintDelegate(DelegateMethod);
+            printDel += PrintTravers.TraversPre;
+            printDel += DelegateMethod;
+            printDel += PrintTravers.TraversPost;
+            printDel += DelegateMethod;
+            printDel += PrintTravers.TraversIn;
+
+            Console.WriteLine("First print Tree in Pre-Order, then in Post-Order, then in In-Order");
+            printDel.Invoke(root);
+
+            Console.ResetColor();
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Just a Method to make the PrintTreeDelegate Method nicer
+        /// </summary>
+        /// <param name="root"></param>
+        private void DelegateMethod(Node root)
+        {
+            Random random = new Random();
+            int colorInt = random.Next(1, 7);
+            ConsoleColor color = ConsoleColor.White;
+
+            switch (colorInt)
+            {
+                case 1:
+                    color = ConsoleColor.Blue;
+                    break;
+
+                case 2:
+                    color = ConsoleColor.Green;
+                    break;
+
+                case 3:
+                    color = ConsoleColor.DarkYellow;
+                    break;
+
+                case 4:
+                    color = ConsoleColor.Red;
+                    break;
+
+                case 5:
+                    color = ConsoleColor.Magenta;
+                    break;
+
+                case 6:
+                    color = ConsoleColor.Cyan;
+                    break;
+            }
+
+            Console.ForegroundColor = color;
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -177,7 +235,7 @@ namespace AvlTree
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\nYOUR TREE:");
-            Print.PrintTreeMain(root, 15);
+            Print.PrintTreeMain(root, 31);
             Console.ResetColor();
 
             Outsorced.WriteColor(true, ConsoleColor.DarkGray, "\nPress any key to continue");

@@ -38,25 +38,28 @@ namespace AvlTree
                             case '2':
                                 if(root != null) root = Edit.DeleteNode(root);
                                 else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
-                                Console.ReadKey();
                                 Console.Clear();
                                 break;
 
                             case '3':
                                 if(root != null) Edit.SearchNode(root);
                                 else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
-                                Console.ReadKey();
                                 Console.Clear();
                                 break;
 
                             case '4':
                                 if(root != null) Edit.PrintTree(root);
                                 else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
-                                Console.ReadKey();
                                 Console.Clear();
                                 break;
 
                             case '5':
+                                if (root != null) Edit.PrintTreeDelegate(root);
+                                else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
+                                Console.Clear();
+                                break;
+
+                            case '6':
                                 actualTree = false;
                                 root = null;
                                 break;
