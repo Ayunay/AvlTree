@@ -10,6 +10,7 @@ namespace AvlTree
     internal class TreeEdit
     {
         TreeAdd Add = new TreeAdd();
+        TreeCheck Check = new TreeCheck();
         TreeSearch Search = new TreeSearch();
         TreeDelete Delete = new TreeDelete();
         TreePrint Print = new TreePrint();
@@ -142,7 +143,8 @@ namespace AvlTree
             Console.ForegroundColor = ConsoleColor.Blue;
             int count = PrintTravers.TraversInCount(root);
 
-            Outsorced.WriteColor(true, ConsoleColor.Green, $"\nThere are {count} nodes in the tree.\n");
+            Outsorced.WriteColor(true, ConsoleColor.Green, $"\nThere are {count} nodes in the tree.");
+            Outsorced.WriteColor(true, ConsoleColor.Green, $"The height of the tree is {Check.NodeHeight(root)}.\n");
             Console.ResetColor();
 
             PrintTreeLines(root);
