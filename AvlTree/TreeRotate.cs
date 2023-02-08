@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace AvlTree
 {
-    internal class TreeRotate
+    public class TreeRotate
     {
         /// <summary>
         /// Main nodes to rotate: node + node.Left  + node.Left.Left

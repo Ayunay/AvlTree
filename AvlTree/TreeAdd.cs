@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AvlTree
 {
-    internal class TreeAdd
+    public class TreeAdd
     {
         TreeCheck Check = new TreeCheck();
         private bool parentExist = false;

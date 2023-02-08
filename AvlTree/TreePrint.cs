@@ -18,7 +18,7 @@ namespace AvlTree
     /// - Height 4: 31
     /// Empty nodes in the tree are shown as the string "emptyNode"
     /// </summary>
-    internal class TreePrint
+    public class TreePrint
     {
         string emptyNode = " . ";   // Important: Chose a symbol and leave one space before and after
         

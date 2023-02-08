@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AvlTree
 {
-    internal class TreeEdit
+    public class TreeEdit
     {
         TreeAdd Add = new TreeAdd();
         TreeCheck Check = new TreeCheck();

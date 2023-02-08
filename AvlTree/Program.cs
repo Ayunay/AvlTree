@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace AvlTree
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -25,7 +25,6 @@ namespace AvlTree
 
                     while (actualTree)
                     {
-
                         // What do you want to do with your Tree?
                         char editSelect = Outsorced.HowToEditTree();
 

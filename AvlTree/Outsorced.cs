@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AvlTree
 {
-    internal class Outsorced
+    public class Outsorced
     {
         /// <summary>
         /// Play or Exit the Game

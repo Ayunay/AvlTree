@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AvlTree
 {
-    internal class TreePrintTravers
+    public class TreePrintTravers
     {
         /// <summary>
         /// Print the whole Tree in Pre-Order (Root-Left-Right)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AvlTree
 {
-    internal class TreeDelete
+    public class TreeDelete
     {
         /// <summary>
         /// Deletes a node in the tree and sort the rest of the tree so that there is no gap the the position of the deleted node

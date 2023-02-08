@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace AvlTree
 {
-    internal class TreeSearch
+    public class TreeSearch
     {
         /// <summary>
         /// Search for a number in the Tree

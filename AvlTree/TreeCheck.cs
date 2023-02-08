@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace AvlTree
 {
-    internal class TreeCheck
+    public class TreeCheck
     {
         #region Check Height of all Nodes to check if we need to rotate
 
@@ -88,11 +88,6 @@ namespace AvlTree
         /// <returns>The rotated part of the tree (with the root at the same position as inserted)</returns>
         private Node WhichRotation(Node node, int height)
         {
-            //PRINT TREE
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"\nROTATE node {node.value} cause of height {height}");
-            Console.ResetColor();
-
             if (height == -2)        
             {
                 // if problem is directly at node (when node has only one child)
