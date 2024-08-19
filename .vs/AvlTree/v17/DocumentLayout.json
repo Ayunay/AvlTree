@@ -1,0 +1,210 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treeedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treeedit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treerotate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treerotate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treeprinttravers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treeprinttravers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treedelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treedelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treeprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treeprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\outsorced.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\outsorced.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treecheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treecheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\treeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\treeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|c:\\users\\mjabs\\documents\\a_saestudium\\altes\\diploma_4-1\\avltree\\avltree\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17A0EBEB-4FEC-4596-8AD6-FDDFC84B1502}|AvlTree\\AvlTree.csproj|solutionrelative:avltree\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\Program.cs",
+              "RelativeDocumentMoniker": "AvlTree\\Program.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\Program.cs",
+              "RelativeToolTip": "AvlTree\\Program.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwCQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TreeEdit.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeEdit.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreeEdit.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeEdit.cs",
+              "RelativeToolTip": "AvlTree\\TreeEdit.cs",
+              "ViewState": "AQIAAPAAAAAAAAAAAAAIwHQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TreePrint.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreePrint.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreePrint.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreePrint.cs",
+              "RelativeToolTip": "AvlTree\\TreePrint.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TreePrintTravers.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreePrintTravers.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreePrintTravers.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreePrintTravers.cs",
+              "RelativeToolTip": "AvlTree\\TreePrintTravers.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TreeSearch.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeSearch.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreeSearch.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeSearch.cs",
+              "RelativeToolTip": "AvlTree\\TreeSearch.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TreeDelete.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeDelete.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreeDelete.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeDelete.cs",
+              "RelativeToolTip": "AvlTree\\TreeDelete.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TreeCheck.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeCheck.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreeCheck.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeCheck.cs",
+              "RelativeToolTip": "AvlTree\\TreeCheck.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAwEMAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TreeAdd.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeAdd.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreeAdd.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeAdd.cs",
+              "RelativeToolTip": "AvlTree\\TreeAdd.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAgwCcAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Outsorced.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\Outsorced.cs",
+              "RelativeDocumentMoniker": "AvlTree\\Outsorced.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\Outsorced.cs",
+              "RelativeToolTip": "AvlTree\\Outsorced.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAAAEAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Node.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\Node.cs",
+              "RelativeDocumentMoniker": "AvlTree\\Node.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\Node.cs",
+              "RelativeToolTip": "AvlTree\\Node.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TreeRotate.cs",
+              "DocumentMoniker": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeRotate.cs",
+              "RelativeDocumentMoniker": "AvlTree\\TreeRotate.cs",
+              "ToolTip": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\TreeRotate.cs",
+              "RelativeToolTip": "AvlTree\\TreeRotate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T16:05:33.502Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

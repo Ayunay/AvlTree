@@ -115,7 +115,6 @@ namespace AvlTree
             }
             root = Delete.Delete(root, deleteNode);
 
-            //Console.Clear();
             Outsorced.WriteColor(true, ConsoleColor.Magenta, $"Delete number {deleteValue} from the tree.\n");
 
 

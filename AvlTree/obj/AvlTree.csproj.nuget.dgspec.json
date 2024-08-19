@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\AvlTree\\AvlTree\\AvlTree.csproj": {}
+    "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\AvlTree.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\AvlTree\\AvlTree\\AvlTree.csproj": {
+    "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\AvlTree.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\AvlTree\\AvlTree\\AvlTree.csproj",
+        "projectUniqueName": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\AvlTree.csproj",
         "projectName": "AvlTree",
-        "projectPath": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\AvlTree\\AvlTree\\AvlTree.csproj",
+        "projectPath": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\AvlTree.csproj",
         "packagesPath": "C:\\Users\\mjabs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Programming\\AvlTree\\AvlTree\\obj\\",
+        "outputPath": "C:\\Users\\mjabs\\Documents\\a_SaeStudium\\Altes\\Diploma_4-1\\AvlTree\\AvlTree\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mjabs\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -55,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

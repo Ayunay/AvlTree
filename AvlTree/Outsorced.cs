@@ -59,11 +59,10 @@ namespace AvlTree
             Console.WriteLine(menuSign);
             Console.WriteLine("\nWhat do you want to do? \n" +
                                 "1. Add a node \n" +
-                                "2. Delete a node \n" +
-                                "3. Search a node (value) \n" +
-                                "4. Print the whole tree \n" +
-                                "5. Function for a Delegate: Print the tree in Pre-, Post- and In-Order \n" +
-                                "6. Exit my actual Tree > Important: This causes the tree to delete all data! \n" +
+                                "2. Search a node (value) \n" +
+                                "3. Print the whole tree \n" +
+                                "4. Function for a Delegate: Print the tree in Pre-, Post- and In-Order \n" +
+                                "5. Exit my actual Tree > Important: This causes the tree to delete all data! \n" +
                                 "\nNote: If the Tree is sometimes not printed well or some numbers are not printet, " +
                                 "its because this tree is only for numbers lower than 100, if you take higher numbers they may be invisible!");
 

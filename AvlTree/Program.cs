@@ -34,31 +34,32 @@ namespace AvlTree
                                 root = Edit.AddNode(root);
                                 break;
 
-                            case '2':
-                                if(root != null) root = Edit.DeleteNode(root);
-                                else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
-                                Console.Clear();
-                                break;
+                            // Error
+                            //case '2':
+                            //    if(root != null) root = Edit.DeleteNode(root);
+                            //    else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
+                            //    Console.Clear();
+                            //    break;
 
-                            case '3':
+                            case '2':
                                 if(root != null) Edit.SearchNode(root);
                                 else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
                                 Console.Clear();
                                 break;
 
-                            case '4':
+                            case '3':
                                 if(root != null) Edit.PrintTree(root);
                                 else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
                                 Console.Clear();
                                 break;
 
-                            case '5':
+                            case '4':
                                 if (root != null) Edit.PrintTreeDelegate(root);
                                 else Outsorced.WriteColor(true, ConsoleColor.Red, "Your Tree is empty");
                                 Console.Clear();
                                 break;
 
-                            case '6':
+                            case '5':
                                 actualTree = false;
                                 root = null;
                                 break;
